@@ -15,7 +15,7 @@
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
 
-
+\usepackage{makecell}
 \usepackage{subcaption}
 \setboolean{solution}{true}
 
@@ -1284,7 +1284,7 @@ u &:& \Reals & \rightarrow & \Reals\\
 \end{exercise}
 
 
-\subsection{Normalform}
+\subsection{Allgemeine Form}
 Funktionen wie in Aufgabe~\ref{ex:konfrontation_quadratische_funktion} werden als \textbf{quadratische Funktionen} bezeichnet. Ihr Funktionsgraph ist ein ist einem ``u'' oder einem auf den Kopf gedrehten ``u'' ähnlich. Quadratische Funktionen sind dadurch erkennbar, dass sie das Funktionsargument quadrieren.
 
 
@@ -1292,11 +1292,11 @@ Funktionen wie in Aufgabe~\ref{ex:konfrontation_quadratische_funktion} werden al
 Es seien $A$ und $B$ zwei Teilmengen der reellen Zahlen.
 
 Eine Funktion $f : A \rightarrow B$ heisst \textbf{quadratische Funktion}, wenn drei reelle Konstanten $a,b,c \in \mathbb{R}$ existieren, so dass $a \neq 0$ und so dass gilt:
-\begin{IEEEeqnarray}{rClCr}\label{eq:normalform_quad_func}
+\begin{IEEEeqnarray}{rClCr}\label{eq:allgemeine_form_quad_func}
 f(x) &=& ax^2 + bx + c, &\quad &\forall \; x \in A.
 \end{IEEEeqnarray}
 
-Diese Schreibweise für quadratische Funktionen heisst \textbf{Normalform}.
+Diese Schreibweise für quadratische Funktionen heisst \textbf{allgemeine Form}.
 \end{whiteboxdef}
 \begin{remark}
 Eine Menge $S$ ist eine \textbf{Teilmenge} der Menge $M$, wenn jedes Element in $S$ auch ein Element in $M$ ist (\emph{$S$ ist \emph{``ein Teil''} aus $M$}. Symbolisch lässt sich das als ``$S \subseteq M$'' abkürzen).
@@ -1304,7 +1304,7 @@ Eine Menge $S$ ist eine \textbf{Teilmenge} der Menge $M$, wenn jedes Element in 
 Zum Beispiel ist die Menge der nicht-positiven reellen Zahlen $\mathbb{R}_{\leqslant 0}$ eine Teilmenge der reellen Zahlen. Eine Menge ist immer auch eine Teilmenge seiner selbst (z.B. ist $\mathbb{R}$ eine Teilmenge von $\mathbb{R}$, nämlich \emph{``der ganze Teil''} von $\mathbb{R}$).
 
 
-Das Symbol $\forall$ bedeutet \textbf{\emph{``für alle''} oder \emph{``für jedes''}}. Gleichung~\ref{eq:normalform_quad_func} lässt sich also wie folgt aussprechen:
+Das Symbol $\forall$ bedeutet \textbf{\emph{``für alle''} oder \emph{``für jedes''}}. Gleichung~\ref{eq:allgemeine_form_quad_func} lässt sich also wie folgt aussprechen:
 \emph{Der Funktionswert von $f$ im Punkt $x$ ist gleich dem Wert des Terms $ax^2 + bx + c$, und zwar für jedes Element $x$ aus der Definitionsmenge $A$}.
 \end{remark}
 \begin{example}
@@ -1314,7 +1314,7 @@ Das Symbol $\forall$ bedeutet \textbf{\emph{``für alle''} oder \emph{``für jed
 A &:& \mathbb{R}_{\geqslant 0} &\rightarrow &\mathbb{R}\\
 && l &\mapsto & l^2.
 \end{IEEEeqnarray*}
-Die Funktion $A$ ist quadratisch, weil Gleichung~\ref{eq:normalform_quad_func} für $a=1, b=0$ und $c=0$ hält. Wir finden nämlich, für jedes $x \in \mathbb{R}_{\geqslant 0}$:
+Die Funktion $A$ ist quadratisch, weil Gleichung~\ref{eq:allgemeine_form_quad_func} für $a=1, b=0$ und $c=0$ hält. Wir finden nämlich, für jedes $x \in \mathbb{R}_{\geqslant 0}$:
 \begin{IEEEeqnarray*}{rCl}
 A(x) &=& x^2\\
 &=& a x^2 + 0 \cdot x + 0
@@ -1324,7 +1324,7 @@ A(x) &=& x^2\\
 v &:& \mathbb{R}_{\geqslant 0} &\rightarrow &\mathbb{R}\\
 && t &\mapsto & 5t^2 + 6t + 10,
 \end{IEEEeqnarray*}
-da Geichung~\ref{eq:normalform_quad_func} erfüllt wird mit $a=5, b=6$ und $c=10$.
+da Geichung~\ref{eq:allgemeine_form_quad_func} erfüllt wird mit $a=5, b=6$ und $c=10$.
 \item Es seien $g$ und $h$ reelle lineare Funktionen, wie folgt definiert:
 \begin{IEEEeqnarray*}{rCrClCrCrCl}
 g & : & \Reals &\rightarrow &\Reals & \quad & h & : & \Reals &\rightarrow & \Reals\\
@@ -1333,7 +1333,7 @@ g & : & \Reals &\rightarrow &\Reals & \quad & h & : & \Reals &\rightarrow & \Rea
 Das Produkt der Funktionen $g$ und $h$ ist wiederum eine Funktion, $f = g \cdot h$, die wie folgt definiert ist:
 \begin{IEEEeqnarray*}{rCrCl}
 f &: & \Reals & \rightarrow &\Reals\\
-&& x &\mapsto & g(x) \cdot h(x)
+&& x &\mapsto & g(x) \cdot h(x).
 \end{IEEEeqnarray*}
 Die Funktion $f$ ist eine quadratische Funktion, denn es gilt für jedes $x \in \mathbb{R}:$
 \begin{IEEEeqnarray*}{rCl}
@@ -1343,15 +1343,15 @@ f(x) &=&  g(x) \cdot h(x)\\
 &=& -24x^2 + 40x -6x +10\\
 &=& -24x^2 +34x + 10,
 \end{IEEEeqnarray*}
-somit ist Gleichung~\ref{eq:normalform_quad_func} für $a=-24, b=34$ und $c=10$ erfüllt.
+somit ist Gleichung~\ref{eq:allgemeine_form_quad_func} für $a=-24, b=34$ und $c=10$ erfüllt.
 \end{enumerate}
 \end{example}
 
-\begin{exercise}
+\begin{exercise}\label{ex:quad_func_allgemein_params}
 Es seien $f, h, w$ und $u$ wie aus Aufgabe~\ref{ex:konfrontation_quadratische_funktion}. Bestimmen Sie für jede der Funktionen die Parameter $a,b,c,$ so dass ihre Zuordnung als $ax^2 + bx + c$ geschrieben werden kann.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{ex:quad_func_allgemein_einfluss_params}
 Greifen Sie auf das vorbereitete Geogebra Arbeitsblatt zu und verbringen Sie einige Minuten damit, ein Gefühl für die Parameter $a,b$ und $c$ zu erhalten.
 \begin{itemize}
 \item Welchen Parameter müssen Sie ändern, wenn Sie den Funktionsgraphen vertikal nach oben oder unten verschieben möchten?
@@ -1359,12 +1359,12 @@ Greifen Sie auf das vorbereitete Geogebra Arbeitsblatt zu und verbringen Sie ein
 \end{itemize}
 \end{exercise}
 \begin{remark}
-Eine quadratische Funktion $f: \mathbb{R} \rightarrow \mathbb{R},$ ausgedrückt in der Normalform wie in Gleichung~\ref{eq:normalform_quad_func}, hat ihren Ordinatenabschnitt immer in $c,$ denn es gilt: $f(0) = c$. (Der Ordinatenabschnitt einer Funktion ist der Funktionswert im Punkt $0$.)
+Eine quadratische Funktion $f: \mathbb{R} \rightarrow \mathbb{R},$ ausgedrückt in der allgemeinen Form wie in Gleichung~\ref{eq:allgemeine_form_quad_func}, hat ihren Ordinatenabschnitt immer in $c,$ denn es gilt: $f(0) = c$. (Der Ordinatenabschnitt einer Funktion ist der Funktionswert im Punkt $0$.)
 
 Das Vorzeichen des Parameters $a$ informiert über die Öffnung der Funktion: ist dieser positiv, so ist die Funktion nach oben geöffnet, ist dieser negativ, so ist die Funktion nach unten geöffnet. Dieser Sachverhalt wird in den nächsten Unterkapiteln noch formell bewiesen.
 \end{remark}
 
-\begin{exercise}
+\begin{exercise}\label{ex:quad_func_allgemein_einfluss_param_c}
 Es sei $f: \Reals \rightarrow \Reals, \; f(x) = -x^2 + 2x + 1$.
 \begin{enumerate}
 \item Verändern Sie die Funktion, so dass sich der Funktionsgraph um $4$ Einheiten nach oben verschiebt.
@@ -1387,7 +1387,8 @@ Es sei $f: \Reals \rightarrow \Reals, \; f(x) = -x^2 + 2x + 1$.
 \newpage
 
 \subsection{Scheitelpunktform}
-\begin{exercise}\label{ex:konfrontation_quadratische_funktion}
+\begin{exercise}\label{ex:konfrontation_quadratische_funktion_scheitelpunkt}
+\footnotesize
 Es seien folgende Funktionen gegeben:
 {\footnotesize
 \begin{IEEEeqnarray*}{rCrClCrCrCl}
@@ -1404,25 +1405,25 @@ u &:& \Reals & \rightarrow & \Reals\\
 \end{IEEEeqnarray*}
 }
 \begin{enumerate}[label=\alph*)]
-\item Sind das quadratische Funktionen? Weshalb? Falls ja, bestimmen Sie die Normalform der Funktionen.
-\item Bestimmen Sie für jede Funktion den Minimal oder Maximalwert, den diese Funktion annehmen kann. Begründen Sie.
+\item Sind das quadratische Funktionen? Weshalb? Falls ja, bestimmen Sie die allgemeine Form der Funktionen.
+\item Bestimmen Sie für jede Funktion den Minimal und Maximalwert, den diese Funktion annehmen kann. Begründen Sie.
 \begin{center}
 \footnotesize
 \begin{tabularx}{\linewidth}{|l|X|X|}
 \toprule
-Funktion & Funktionsargument & Extremwert\\
+Funktion & \makecell{ Funktionsargument \\  \& Minimalwert} & \makecell{  Funktionsargument \\  \& Maximalwert} \\
 \midrule
 $f(x) = x^2$ & & \\
-& & \\
+ & &\\
 \hline
 $w(x) = (x-1)^2 + 3$ & & \\
-& & \\
+ & &\\
 \hline
-$h(x) = -(x+2)^2 - 5$ & & \\
-& & \\
+$h(x) = -(x+2)^2 - 5$ &  &\\
+& &\\
 \hline
-$u(x) = 2x^2 + 3$ & & \\
-& & \\
+$u(x) = 2x^2 + 3$ &  &\\
+ & &\\
 \bottomrule
 \end{tabularx}
 \end{center}
@@ -1469,7 +1470,7 @@ $u(x) = 2x^2 + 3$ & & \\
 \end{exercise}
 
 \begin{whiteboxdef}
-Es seien $A$ und $B$ zwei Teilmengen von $\Reals$ und $f: A \rightarrow B$ eine quadratische Funktion, so dass gilt:
+Es seien $A$ und $B$ zwei Teilmengen der reellen Zahlen und $f: A \rightarrow B$ eine quadratische Funktion, so dass zwei reelle Konstanten $d$ und $e$ existieren und so dass gilt:
 \begin{IEEEeqnarray}{rClCl}\label{eq:scheitelpunktform_quad_func}
 f(x) &= & a(x-d)^2 + e, &\quad& \forall \; x \in A.
 \end{IEEEeqnarray}
@@ -1478,7 +1479,7 @@ Diese Schreibweise für quadratische Funktionen heisst \textbf{Scheitelpunktform
 
 
 
-\begin{exercise}
+\begin{exercise}\label{ex:scheitelpunkt_lueckentext}
 Greifen Sie auf das vorbereitete Geogebra Arbeitsblatt zu, um ein Gefühl für die Rolle der Parameter $a, d$ und $e$ aus Gleichung~\ref{eq:scheitelpunktform_quad_func} zu bekommen.
 \begin{enumerate}
 \item Vervollständigen Sie folgende Sätze:
@@ -1493,7 +1494,7 @@ Greifen Sie auf das vorbereitete Geogebra Arbeitsblatt zu, um ein Gefühl für d
 \end{enumerate}
 \end{exercise}
 
-Wir werden im Kapitel~\ref{subsec:qudratische_ergaenzung} sehen, dass jede quadratische Funktion in der Scheitelpunktform geschrieben werden kann. Gegenüber der Normalform bietet diese Vorteil, dass der Scheitelpunkt hervorgehoben wird und einfach erkennbar ist. Sie lässt ausserdem erkennen, dass der Funktionsgraph einer quadratischen Funktion eine \textbf{Symmetrieachse} erlaubt, die durch den Scheitelpunkt verläuft. Diesen Umstand werden wir in Satz~\ref{satz:eigenschaften_quad_func} noch formal beweisen.
+Wir werden im Kapitel~\ref{subsec:qudratische_ergaenzung} sehen, dass jede quadratische Funktion in der Scheitelpunktform geschrieben werden kann. Gegenüber der allgemeinen Form bietet diese Vorteil, dass der Scheitelpunkt hervorgehoben wird und einfach erkennbar ist. Sie lässt ausserdem erkennen, dass der Funktionsgraph einer quadratischen Funktion eine \textbf{Symmetrieachse} erlaubt, die durch den Scheitelpunkt verläuft. Diesen Umstand werden wir in Satz~\ref{satz:eigenschaften_quad_func} noch formal beweisen.
 
 \begin{figure}[h]
 \begin{center}
@@ -1536,7 +1537,7 @@ Wir werden im Kapitel~\ref{subsec:qudratische_ergaenzung} sehen, dass jede quadr
     %\draw (0.5,0) -- (0.5,0.1) -- (0.6,0.1); % Small right angle symbol
     %\node at (3,3) [below, right, orange] {$\textit{Steigung} = \frac{\Delta y}{\Delta x} = 2$};
 \end{tikzpicture}
-\caption{Funktionsgraph für $f(x) = 2(x-1)^2 + 3$}\label{fig:scheitelpunkt}
+\caption{Funktionsgraph für $f(x) = 2(x-1)^2 + 3$ mit Scheitelpunkt $(1,3)$.}\label{fig:scheitelpunkt}
 \end{center}
 \end{figure}
 \begin{proposition}\label{satz:eigenschaften_quad_func}
@@ -1548,27 +1549,22 @@ Eine quadratische Funktion $f: \mathbb{R} \rightarrow \mathbb{R}$ in Scheitelpun
 \emph{Das bedeutet, dass der Funktionsgraph von $f$ um die vertikale Achse, die durch den Punkt $d$ verläuft, symmetrisch ist. Man nennt diese Achse auch \textbf{Symmetrieachse}.}
 \end{enumerate}
 \end{proposition}
-\begin{proof}
-\textbf{1 \& 2:}
-Da wir mit den reellen Zahlen arbeiten, wissen wir, dass der Term $(x-d)^2$ für jedes $x \neq d$ positiv, also grösser als Null ist. Wir wissen deshalb, dass der Term $a(x-d)^2$ grösser als Null sein muss, wenn $a >0$ und $x \neq d$ gilt. Deshalb finden wir, dass gilt:
+\begin{proof}%
+\textbf{Aussage 1:}
+Da wir mit den reellen Zahlen arbeiten, ist der Term $(x-d)^2$ für jedes $x \neq d$ positiv, also grösser als Null Wir wissen deshalb, dass der Term $a(x-d)^2$ grösser als Null sein muss, wenn $a >0$ und $x \neq d$ gilt. Deshalb finden wir, dass gilt:
 \begin{IEEEeqnarray*}{rCl}
 f(x) &=& a(x-d)^2 + e > e.
 \end{IEEEeqnarray*}
-Entsprechend wissen wir, dass der Funktionswert von $f$ für jedes $x \neq d$ strikt grösser als $e$ sein muss.
+Entsprechend wissen wir, dass der Funktionswert von $f$ für jedes $x \neq d$ strikt grösser als $e$ sein muss, dass also $f(x) > e,\; \forall x \neq d$ gilt.
 Wir finden ausserdem, dass der Funktionswert von $f$ im Punkt $d$ genau $e$ ist, denn es gilt:
-\begin{IEEEeqnarray*}{rCl}
-f(d) = a(d-d)^2 + d = a \cdot 0^2 + d = d
-\end{IEEEeqnarray*}
-Entsprechend wissen wir, dass die Funktion $f$ im Punkt $d$ ihren Minimalwert annimmt und dass dieser genau $f(d) = e$ beträgt.
-\begin{IEEEeqnarray*}{lCrCl}
-&&a(x-d)^2 &\geqslant & 0\\
-&\iff & a(x-d)^2 + e & \geqslant &e\\
-&\Rightarrow & f(x) & \geqslant & e
-\end{IEEEeqnarray*}
+\begin{IEEEeqnarray}{rCl}\label{eq:scheitlpunkt_eval_in_d}
+f(d) = a(d-d)^2 + e = a \cdot 0^2 + e = e.
+\end{IEEEeqnarray}
+Wir schlussfolgern dass $f(x) \geqslant e$, für jedes $x \in \Reals,$ womit Aussage 1 beweisen ist. 
+\paragraph{Aussage 2:}
+Für den Fall dass $a$ negativ ist, dreht sich das Vorzeichen in den obigen Gleichungen um. Wir wissen dann, dass der Funktionswert von $f$ für $x\neq d$ strikt kleiner als $e$ ist. Wir sehen, dass Gleichung~\ref{eq:scheitlpunkt_eval_in_d} auch für negative $a$ gültig ist und können deshalb schlussfolgern, dass wenn $a$ negativ ist, $f(x) \leqslant e, \forall x \in \Reals$ gilt, womit Aussage 2 beweisen ist.
 
-Für den Fall, dass $a$ negativ ist, dreht sich das Vorzeichen in den obigen Gleichungen jeweils um, also wir wissen dann, dass $f(x) = a(x-d)^2 + e < e$ gelten muss, solange $x\neq d$ gilt.
-
-\textbf{3:}
+\paragraph{Aussage 3:}
 Wir sehen, dass gilt:
 \begin{IEEEeqnarray*}{rCl}
 f(d+x) &=& a((d+x)-d)^2 +e\\
@@ -1581,28 +1577,28 @@ f(d+x) &=& a((d+x)-d)^2 +e\\
 womit Aussage 3 bewiesen ist.
 \end{proof}
 
-
-\begin{proposition}\label{satz:scheitelpunkt_zu_normalform}
-Es sei $f: \Reals \rightarrow \Reals$ eine quadratische Funktion in Scheitelpunktform mit Parameter $a, d$ und $e$:
-\begin{IEEEeqnarray*}{rClCl}
-f(x) &= & a(x-d)^2 + e, &\quad& \forall \; x \in A.
-\end{IEEEeqnarray*}
-Dann lässt sich $f$ in Normalform schreiben, mit Parameter $b=-2ad$ und $c=ad^2+e$
-\end{proposition}
-
-\begin{proof}
-Man muss den Zuordnungsterm nur ausmultiplizieren:
-\begin{IEEEeqnarray*}{rCl}
-f(x) &=& a(x-d)^2 + e\\
-&=& a (x^2 - 2xd + d^2) + e\\
-&=&ax^2 \underbrace{\color{orange}-2ad}_{\color{orange}b} x + \underbrace{\color{magenta}ad^2 + e}_{\color{magenta}c},
-\end{IEEEeqnarray*}
-Offensichtlich gilt für $b=-2ad$ und $c=ad^2 + d$, dass der Funktionswert von $f$ in $x$ gleich $ax^2 + bx + c$ ist. Und zwar für jede reelle Zahl $x$.
-\end{proof}
+%
+%\begin{proposition}\label{satz:scheitelpunkt_zu_allgemeine_form}
+%Es sei $f: \Reals \rightarrow \Reals$ eine quadratische Funktion in Scheitelpunktform mit Parameter $a, d$ und $e$:
+%\begin{IEEEeqnarray*}{rClCl}
+%f(x) &= & a(x-d)^2 + e, &\quad& \forall \; x \in A.
+%\end{IEEEeqnarray*}
+%Dann lässt sich $f$ in allgemeine Form schreiben, mit Parameter $b=-2ad$ und $c=ad^2+e$
+%\end{proposition}
+%
+%\begin{proof}
+%Man muss den Zuordnungsterm nur ausmultiplizieren:
+%\begin{IEEEeqnarray*}{rCl}
+%f(x) &=& a(x-d)^2 + e\\
+%&=& a (x^2 - 2xd + d^2) + e\\
+%&=&ax^2 \underbrace{\color{orange}-2ad}_{\color{orange}b} x + \underbrace{\color{magenta}ad^2 + e}_{\color{magenta}c},
+%\end{IEEEeqnarray*}
+%Offensichtlich gilt für $b=-2ad$ und $c=ad^2 + d$, dass der Funktionswert von $f$ in $x$ gleich $ax^2 + bx + c$ ist. Und zwar für jede reelle Zahl $x$.
+%\end{proof}
 
 
 \subsection{Quadratische Ergänzung}\label{subsec:qudratische_ergaenzung}
-Es ist zwar einfach, von der Scheitelpunktform auf die Normalform zu schliessen, es ist jedoch etwas schwieriger, den umgekehrten Weg zu gehen. Also von der Normalform ausgehend, die Scheitelpunktform zu finden.
+Es ist zwar einfach, von der Scheitelpunktform auf die allgemeine Form zu schliessen, es ist jedoch etwas schwieriger, den umgekehrten Weg zu gehen. Also von der allgemeinen Form ausgehend, die Scheitelpunktform zu finden.
 
 
 Das erreicht man mit der Methode der \textbf{quadratischen Ergänzung}: die Idee, ist, dass man den Term $ax^2+bx + c$ ``zum Quadrat ergänzt'', um danach einen Term der Form $a(x-d)^2 + e$ zu erhalten. Das Ziel hierbei ist es, alle von $x$ abhängigen Terme in einem Term zusammenzufassen, der ins Quadrat gesetzt wird.
@@ -1612,22 +1608,22 @@ Das erreicht man mit der Methode der \textbf{quadratischen Ergänzung}: die Idee
 \begin{enumerate}[label=\alph*)]
 \item Der Term $x^2 +2x + 1$ ist bereits ein perfektes Quadrat, denn es gilt:
 \begin{IEEEeqnarray*}{rCl}
-x^2 +2x + 1 &=& (x+1)^2
+x^2 +2x + 1 &=& (x+1)^2.
 \end{IEEEeqnarray*}
 \item Der Term $x^2 + 2x + 2$ ist kein perfektes Quadrat, aber er lässt sich zum Quadrat ergänzen:
 \begin{IEEEeqnarray*}{rCl}
 x^2 +2x + 2 &=&  (x^2 +2x + 1 )+ 1\\
-&=& (x+1)^2 + 1
+&=& (x+1)^2 + 1.
 \end{IEEEeqnarray*}
 \item Der Term $x^2 + 6x + 10$ ist kein perfektes Quadrat, man kann es jedoch vervollständigen:
 \begin{IEEEeqnarray*}{rCl}
 x^2 + 6x + 10 &=& (x^2 + 6x + 9) + 1\\
-&=& (x+3)^2 + 1
+&=& (x+3)^2 + 1.
 \end{IEEEeqnarray*}
 \item Der Term $2x^2 + 4x + 2$ schaut komplizierter aus, als er tatsächlich ist. Man kann ihn nämlich ziemlich geschickt faktorisieren:
 \begin{IEEEeqnarray*}{rCl}
 2x^2 + 4x + 2 &=& 2(x^2 + 2x + 1)\\
-&=& 2(x+1)^2\\
+&=& 2(x+1)^2.\\
 \end{IEEEeqnarray*}
 \end{enumerate}
 \end{example}
@@ -1635,44 +1631,46 @@ x^2 + 6x + 10 &=& (x^2 + 6x + 9) + 1\\
 \begin{remark}
 Es gibt Muster, die sich in der Quadratischen Ergänzung immer wiederholen. Damit man diese erkennt, hilft es, wenn man die binomischen Formel kennt. Die wichtigsten zwei sind hier nochmals kurz aufgelistet:
 \begin{IEEEeqnarray*}{rClCl}
-({\color{red}x}+{\color{blue}{y}})^2 &=& {\color{red}x}^2 + {\color{olive}{2}}{\color{red}x}{\color{blue}{y}} + {\color{blue}{y}}^2 & \quad & \forall \; m,n \in \Reals\\
-({\color{red}x}-{\color{blue}{y}})^2 &=& {\color{red}x}^2 - {\color{olive}{2}}{\color{red}x}{\color{blue}{y}} + {\color{blue}{y}}^2& \quad & \forall \; m,n \in \Reals
+({\color{red}x}+{\color{blue}{y}})^2 &=& {\color{red}x}^2 + {\color{olive}{2}}{\color{red}x}{\color{blue}{y}} + {\color{blue}{y}}^2 & \quad & \forall \; {\color{red}x},{\color{blue}{y}} \in \Reals .\\
+({\color{red}x}-{\color{blue}{y}})^2 &=& {\color{red}x}^2 - {\color{olive}{2}}{\color{red}x}{\color{blue}{y}} + {\color{blue}{y}}^2& \quad & \forall \; {\color{red}x},{\color{blue}{y}} \in \Reals .
 \end{IEEEeqnarray*}
 \end{remark}
 
 \begin{example}
-Wenn es kein offensichtliches Muster gibt, kann man algorithmisch vorgehen. Als Beispiel nehmen wir den Term $5x^2 -x + 12$
+Wenn es kein offensichtliches Muster gibt, kann man algorithmisch vorgehen. Als Beispiel nehmen wir den Term $5x^2 -x + 12.$
 \begin{enumerate}
 \item Als erstes klammert man die von $x$ abhängigen Terme aus:
 \begin{IEEEeqnarray*}{rCl}
-5{\color{red}x}^2 -{\color{red}x} + 12 &= (5{\color{red}x}^2 -{\color{red}x}) + 12
+5{\color{red}x}^2 -{\color{red}x} + 12 &= (5{\color{red}x}^2 -{\color{red}x}) + 12.
 \end{IEEEeqnarray*}
 \item Als nächstes klammert man den Faktor für $x^2$ aus (in diesem Fall $5$) und passt den Faktor für $x$ entsprechend an, so dass die Gleichung stimmt:
 \begin{IEEEeqnarray*}{rCl}
 (5{\color{red}x}^2 -{\color{red}x}) + 12 &=& (5x^2 - \frac{5}{5}{\color{red}x}) + 12\\
-&=& 5({\color{red}x}^2 - \frac{1}{5}{\color{red}x}) + 12
+&=& 5({\color{red}x}^2 - \frac{1}{5}{\color{red}x}) + 12.
 \end{IEEEeqnarray*}
 \item Wenn man jetzt den Faktor $\bigstar$ vor dem $x$ hat, kann man diesen als ${\color{olive}{2}}{\color{blue}\frac{\bigstar}{2}}$ schreiben, (in unserem Fall ist $\bigstar = \frac{1}{5}$).
 \begin{IEEEeqnarray*}{rCl}
-5({\color{red}x}^2 - \frac{1}{5}{\color{red}x}) + 12 &=& 5({\color{red}x}^2 - {\color{olive}2}{\color{blue}\frac{1}{10}}{\color{red}x}) + 12
+5({\color{red}x}^2 - \frac{1}{5}{\color{red}x}) + 12 &=& 5({\color{red}x}^2 - {\color{olive}2}{\color{blue}\frac{1}{10}}{\color{red}x}) + 12.
 \end{IEEEeqnarray*}
 Jetzt weiss man, dass der quadratische Term die Form $\left({\color{red}x}-{\color{blue}\frac{1}{10}}\right)^2$ annehmen wird.
 \item Jetzt ergänzt man den Term in der Klammer zum Quadrat:
 \begin{IEEEeqnarray*}{rCl}
-5({\color{red}x}^2 - {\color{olive}2}{\color{blue}\frac{1}{10}}{\color{red}x}) + 12 &=& 5\left({\color{red}x}^2 - {\color{olive}2}{\color{blue}\frac{1}{10}}{\color{red}x} + \left({\color{blue}\frac{1}{10}}\right)^2 - \left(\frac{1}{10}\right)^2\right) + 12
+5({\color{red}x}^2 - {\color{olive}2}{\color{blue}\frac{1}{10}}{\color{red}x}) + 12 &=& 5\left({\color{red}x}^2 - {\color{olive}2}{\color{blue}\frac{1}{10}}{\color{red}x} + \left({\color{blue}\frac{1}{10}}\right)^2 - \left(\frac{1}{10}\right)^2\right) + 12.
 \end{IEEEeqnarray*}
 \item Als letztes klammert man den negativen ergänzten Faktor aus:
-{\footnotesize
+{\scriptsize
 \begin{IEEEeqnarray*}{rCl}
 5\left({\color{red}x}^2 - {\color{olive}2}{\color{blue}\frac{1}{10}}{\color{red}x} + \left({\color{blue}\frac{1}{10}}\right)^2 - \left({\frac{1}{10}}\right)^2\right) + 12 &=& 5\left({\color{red}x}^2 - {\color{olive}2}{\color{blue}\frac{1}{10}}{\color{red}x} + \left({\color{blue}\frac{1}{10}}\right)^2\right) -5 \left(\frac{1}{10}\right)^2+ 12\\
 &=& 5\left({\color{red}x}- {\color{blue}\frac{1}{10}}\right)^2 -\frac{1}{20} + 12\\
-&=& 5\left({\color{red}x}- {\color{blue}\frac{1}{10}}\right)^2 +\frac{239}{240}\\
+&=& 5\left({\color{red}x}- {\color{blue}\frac{1}{10}}\right)^2 +\frac{239}{240}.\\
 \end{IEEEeqnarray*}
 }
+Somit finden wir $5x^2 -x + 12 = 5\left({x}- {\frac{1}{10}}\right)^2 +\frac{239}{240}.$
+
 \end{enumerate}
 \end{example}
 
-\begin{exercise}
+\begin{exercise}\label{ex:quad_ergaenzung}
 Ergänzen Sie folgende Terme zum Quadrat.
 \begin{enumerate}[2col, label=\alph*)]
 \item $x^2 - 2x + 1$
@@ -1728,8 +1726,8 @@ Ergänzen Sie folgende Terme zum Quadrat.
 %
 %\subsection{Scheitelpunktform}
 
-\begin{theorem}\label{thm:normal_zu_scheitelpunkt}
-Es seien $A$ und $B$ zwei Teilmengen von $\Reals$. Es sei $f: A \rightarrow B$ eine quadratische Funktion in der Normalform mit Parametern $a,b,c$ und $a\neq 0$, so dass gilt: $f(x) = ax^2 + bx + c, \forall x \in A$. Dann lässt sich $f$ in Scheitelpunktform mit Parametern $a,d,e$ schreiben, wobei $d = -\frac{b}{2a}$ und $e=c-\frac{b^2}{4a}$.
+\begin{theorem}\label{thm:standard_zu_scheitelpunkt}
+Es seien $A$ und $B$ zwei Teilmengen von $\Reals$. Es sei $f: A \rightarrow B$ eine quadratische Funktion in der allgemeinen Form mit Parametern $a,b,c$ und $a\neq 0$, so dass gilt: $f(x) = ax^2 + bx + c, \forall x \in A$. Dann lässt sich $f$ in Scheitelpunktform mit Parametern $a,d,e$ schreiben, wobei $d = -\frac{b}{2a}$ und $e=c-\frac{b^2}{4a}$.
 \end{theorem}
 
 \begin{proof}
@@ -1743,13 +1741,14 @@ f(x) &=& ax^2 + bx + c\\
 &=& a\left(x^2 + 2\frac{b}{2a}x + \left(\frac{b}{2a}\right)^2 \right) + \left( c - a\left(\frac{b}{2a}\right)^2\right)\\
 &=& a\left(x + \frac{b}{2a}\right)^2 + \left(c- a\left(\frac{b}{2a}\right)^2\right)\\
 &=& a\left(x - \left(-\frac{b}{2a}\right)\right)^2 + \left(c- a\left(\frac{b}{2a}\right)^2\right)\\
-&=& a\left(x - \left(-\frac{b}{2a}\right)\right)^2 + \left(c- \frac{b^2}{4a}\right)\\
+&=& a\left(x - \left(-\frac{b}{2a}\right)\right)^2 + \left(c- \frac{b^2}{4a}\right).\\
 \end{IEEEeqnarray*}
+Man erkennt, dass Gleichung~\ref{eq:scheitelpunktform_quad_func} auf Seite~\pageref{eq:scheitelpunktform_quad_func} für Parameter $d=-\frac{b}{2a}$ und $e=c- \frac{b^2}{4a}$ hält.
 \end{proof}
 
 \subsection{Zur Eindeutigkeit von quadratischen Funktionen}
 \begin{lemma}
-Quadratische Funktionen mit Definitionsmenge $\mathbb{R}$ und Zielmenge $\mathbb{R}$ sind weder injektiv noch bijektiv. Die vertikale Achse, die durch den Scheitelpunkt verläuft bildet im Funktionsgraphen von quadratischen Funktionen zudem eine \textbf{Symmetrie-Achse}.
+Quadratische Funktionen mit Definitionsmenge $\mathbb{R}$ und Zielmenge $\mathbb{R}$ sind weder injektiv noch surjektiv. Die vertikale Achse, die durch den Scheitelpunkt verläuft bildet im Funktionsgraphen von quadratischen Funktionen zudem eine \textbf{Symmetrie-Achse}.
 \end{lemma}
 
 \begin{proof}
@@ -1763,7 +1762,7 @@ Alle quadratischen Funktionen besitzen einen Extremwert.
 \begin{proof}
 Aus Satz~\ref{satz:eigenschaften_quad_func} folgt, dass jede quadratische Funktion in Scheitelpunktform mit Parameter $a, d, e$ in Punkt $d$ ihren Maximalwert (wenn $a$ negativ) oder ihren Minimalwert (wenn $a$ positiv) einnimmt. Das heisst, jede quadratische Funktion in Scheitelpunktform nimmt einen Extremwert an.
 
-Aus Satz~\ref{thm:normal_zu_scheitelpunkt} folgt, dass jede quadratische Funktion in Scheitelpunktform geschrieben werden kann.
+Aus Satz~\ref{thm:standard_zu_scheitelpunkt} folgt, dass jede quadratische Funktion in Scheitelpunktform geschrieben werden kann.
 
 Somit ist klar, dass jede quadratische Funktion einen Extremwert besitzt.
 \end{proof}
@@ -1771,8 +1770,8 @@ Somit ist klar, dass jede quadratische Funktion einen Extremwert besitzt.
 
 \newpage
 \subsection{Übungen}
-\begin{exercise}
-Bestimmen Sie für folgende Funktionen, ob diese quadratisch sind. Falls ja, geben Sie die Parameter $a,b,c$ für die Normalform an.
+\begin{exercise}\label{ex:quad_eq_intro}
+Bestimmen Sie für folgende Funktionen, ob diese quadratisch sind. Falls ja, geben Sie die Parameter $a,b,c$ für die allgemeine Form an.
 \begin{enumerate}[label=\alph*)]
 \item 
 \begin{IEEEeqnarray*}{rCrCl}
@@ -1807,7 +1806,7 @@ v&:& \Reals & \rightarrow & \Reals\\
 \end{enumerate}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{ex:scheitelpunktformen}
 Bestimmen Sie die Scheitelpunktform folgender quadratischer Funktionen, indem Sie quadratisch ergänzen:
 \begin{enumerate}[2col, label=\alph*)]
 \item \begin{IEEEeqnarray*}{rCrCl}
@@ -1829,7 +1828,7 @@ v &:& \Reals & \rightarrow & \Reals\\
 \end{enumerate}\hfill\\
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{ex:nullstellen}
 Welche der folgenden Funktionen haben Nullstellen?
 \begin{enumerate}[2col, label=\alph*)]
 \item \begin{IEEEeqnarray*}{rCrCl}
@@ -1872,7 +1871,7 @@ g &:& \Reals & \rightarrow & \Reals
 \end{IEEEeqnarray*}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{ex:lueckentext_scheitelpunkt_uebungen}
 Es sei $f: \Reals \rightarrow \Reals, f(x) = a(x-d)^2 + e, \; \forall x \in \Reals$ eine quadratische Funktion in Scheitelpunktform.
 Vervollständigen Sie folgende Sätze und beweisen Sie die Aussagen:
 \begin{enumerate}[label=\alph*)]
@@ -1881,19 +1880,19 @@ Vervollständigen Sie folgende Sätze und beweisen Sie die Aussagen:
 
 \item Wenn $e$ ungleich Null ist und sich das Vorzeichen von $a$ und $e$ unterscheidet, hat $f$ genau \rule{1cm}{0.5pt} Nullstelle(n).
 
-\item Wenn $e$ ungleich Null ist $a$ und $e$ das gleiche Vorzeichen haben, hat $f$ genau \rule{1cm}{0.5pt} Nullstelle(n).
+\item Wenn $e$ ungleich Null ist und $a$ und $e$ das gleiche Vorzeichen haben, hat $f$ genau \rule{1cm}{0.5pt} Nullstelle(n).
 \end{enumerate}
 \end{exercise}
 
 
-\begin{exercise}
+\begin{exercise}\label{ex:funktion_finden}
 In dieser Aufgabe erhalten Sie jeweils die Koordinaten des Scheitelpunkts und eines weiteren Punktes, der auf dem Funktionsgraphen einer quadratischen Funktion liegt. Bestimmen Sie jeweils die Zuordnungsvorschrift der entsprechenden Funktion. \begin{enumerate}[label=\alph*)]
 \item Die Funktion $f: \Reals \rightarrow \Reals,$ deren Funktionsgraphen durch den Punkt $(5,12)$ verläuft und deren Scheitelpunkt in $(2,3)$ liegt.
 \item Die Funktion $g: \Reals \rightarrow \Reals,$  deren Funktionsgraphen durch den Punkt $(0,1)$ verläuft und deren Scheitelpunkt in $(1,9)$ liegt.
 \end{enumerate}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{ex:scheitelpunkt_und_ordinatenabschnitt}
 Bestimmen Sie für folgende quadratische Funktionen den Scheitelpunkt und den Ordinatenabschnitt. Eventuell müssen Sie die Zuordnungsvorschriften quadratisch ergänzen.
 \begin{enumerate}[label=\alph*)]
 \item $f: \Reals \rightarrow \Reals, f(x) = (x-1)^2 + 2, \; \forall x \in \Reals$
@@ -1905,13 +1904,13 @@ Bestimmen Sie für folgende quadratische Funktionen den Scheitelpunkt und den Or
 \end{enumerate} 
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{ex:scheitelpunktform_von_nullstellen}
 Es sei $f: \Reals \rightarrow \Reals$ eine quadratische Funktion mit Extremwert $-2$ und Nullstellen für die Funktionsargumente $-1$ und $3$ (d.h. $f(-1) = f(3) = 0$). Bestimmen Sie die Parameter der Scheitelpunktform für $f$.
 \end{exercise}
 %\subsubsection{Verschiedene Formen}
-%\paragraph{Normalform}
+%\paragraph{allgemeine_form}
 %\paragraph{Scheitelform}
-%\paragraph{Wechsel zwischen Normal- und Scheitelform}
+%\paragraph{Wechsel zwischen standard- und Scheitelform}
 %\subsubsection{Stauchen, Strecken, Verschieben}
 %\subsubsection{Scheitelpunkt}
 %\subsection{Quadratische Gleichungen}
@@ -1926,17 +1925,17 @@ Es sei $f: \Reals \rightarrow \Reals$ eine quadratische Funktion mit Extremwert 
 %a x^2 + bx + c &=& 0
 %\end{IEEEeqnarray*}
 %
-%Diese Schreibweise der Quadratischen Gleichung wird auch \textbf{Normalform} genannt.
+%Diese Schreibweise der Quadratischen Gleichung wird auch \textbf{allgemeine_form} genannt.
 %
 %\begin{remark}
-%Wenn man die Normalform 
+%Wenn man die allgemeine_form 
 %\end{remark}
 %\begin{whiteboxdef}
 %Es seien $a,b,c$ und $y$ vier reelle Zahlen, so dass $a \neq 0$. Es sei $x \in \Reals$ eine unbekannte reelle Zahl. 
 %\end{whiteboxdef}
 \newpage
 \section{Lösungen}
-
+\subsection{Zu Kapitel 1}
 \begin{solution}[ex:func_definitions]%\textbf{Aufgabe}~\ref{ex:func_definitions}
 Es sind nur zwei unterschiedliche Funktionen abgebildet: $f, \blacktriangle, h, \nabla$ und $\bigstar$ repräsentieren alle die gleiche mathematische Funktion.
 $g, \blacksquare, r, K$ und $\S$ beschreiben ebenfalls die gleiche Funktion.
@@ -2145,6 +2144,345 @@ $f \circ g$ lässt sich nicht definiert, da $g$ keine Werte in der Definitionsme
 \end{enumerate}
 \end{solution}
 
+\subsection{Zu Kapitel 3}
+
+\begin{solution}[ex:konfrontation_quadratische_funktion]
+\begin{enumerate}
+\item[a)] Wir bestimmen den Ordinatenabschnitt. Das bedeuted, wir müssen den Funktionswert im Punkt Null berechnen. Für die Funktion $f$ wir haben:
+$$f(0)=0^{2}=0.$$
+Somit ist der Ordinatenabschnit für die Funktion $f$ gleich Null. \\
+Wir machen das Gleiche für die andere Funktionen:
+$$h(0)=-0^{2}+0+10=10.$$
+$$w(0)=0^{2}+5\cdot 0+2=2.$$
+$$u(0)=2\cdot 0^{2}+2=3.$$
+\item[b)]
+Wir wissen aus Aufgabe a), dass $f(0) < w(0) < u(0) < h(0)$ gilt. Wenn wir der vertikalen Achse entlang nach hochgehen, finden wir also zuerst $f$, dann $w$, dann $u$ und danach $h$. Daraus ergibt folgendes:
+\begin{itemize}
+\item der Graph der Funktion $f$ ist in rot; \\
+\item der Graph der Funktion $w$ ist in hellblau; \\
+\item der Graph der Funktion $u$ ist in blau gepunktet; \\
+\item der Graph der Funktion $h$ ist in olive gestrichelt; \\
+\end{itemize}
+\item[c)] \begin{itemize}
+\item Aufgrund des Funktionsgraphen können wir vermuten, dass die Funktion $f$ keine negativen Werte annimmt. Wir können ausserdem vermuten, dass das Funktionsargument gegen $+\infty$ oder gegen $-\infty$ strebt, strebt der Funktionswert gegen $+\infty$. \\
+\item Die Funktion $w$ scheint zwar negative Werte anzunehmen, allerdings keine die kleiner sind als $-5$ (ungefähr). Nach oben scheint die Funktion nicht begrenzt zu sein: wenn das Funktionsargument gegen $+\infty$ oder gegen $-\infty$ strebt, strebt der Funktionswert gegen $+\infty$. \\
+\item Die Funktion $u$ erreicht ein Minimum in $3$. Wenn das Funktionsargument gegen $+\infty$ oder gegen $-\infty$ strebt, strebt der Funktionswert gegen $+\infty$.
+\item Die Funktion $h$ scheint keine Werte anzunehmen, die grösser als (ungefähr) $11$ sind. Die Funktion scheint nach unten unbegrenzt, wenn das Funktionsargument gegen $+\infty$ oder gegen $-\infty$ strebt, strebt der Funktionswert gegen $-\infty$.\\
+\end{itemize}
+
+\item[d)] Die Funktionen sind offensichtlich nicht injektiv: wenn wir eine horizontale Linie, parallel zur x-Achse irgendwo zwischen Höhe $10$ und Höhe $3$ einzeichnen, dann schneidet diese Gerade jeden Funktionsgraphen in zwei Punkten. Somit gibt es je mindestens zwei Funktionsargumente, die zum gleichen Funktionswert führen.
+
+Aus dem Punkt c) können wir vermuten, dass die Funktionen nicht surjektiv sind: sie scheinen alle entweder einen Maximal- oder einen Minimalwert zu haben.
+\end{enumerate}
+\end{solution}
+
+\begin{solution}[ex:quad_func_allgemein_params]
+\begin{itemize}
+\item Für die Funktion $f:\mathbb{R}\to\mathbb{R}$, $f(x)=x^{2}$, wir haben $a=1$ und $b=c=0$.
+\item Für die Funktion $h:\mathbb{R}\to\mathbb{R}$, $h(x)=-x^{2}+x+10$, wir haben $a=-1$, $b=1$ und $c=10$.
+\item Für die Funktion $w:\mathbb{R}\to\mathbb{R}$, $w(x)=x^{2}+5x+2$, wir haben $a=1$, $b=5$ und $c=2$.
+\item Für die Funktion $u:\mathbb{R}\to\mathbb{R}$, $u(x)=2x^{2}+3$, wir haben $a=2$, $b=0$ und $c=3$.
+\end{itemize}
+\end{solution}
+\begin{solution}[ex:quad_func_allgemein_einfluss_params]
+Wir müssen den Parameter $c$ vergrössern, um den Funktionsgraphen vertikal nach oben zu verschieben und ihn verkleinern, um den Funktionsgraphen vertikal nach unten zu verschieben. \\
+Das Vorzeichnen von $a$ entscheidet, ob sich der Graph nach oben (wenn $a>0$) oder unten (wenn $a<0$) öffnet.
+\end{solution}
+
+
+\begin{solution}[ex:quad_func_allgemein_einfluss_param_c]
+\begin{enumerate}
+\item[\emph{1.}] Wenn wir den Funktionsgraphen um 4 Einheiten nach oben verschieben wollen, müssen wir den Parameter $c$ um vier Einheiten vergrössern. Es sei $f': \Reals \rightarrow \Reals$ die verschobene Funktion, dann ist ihre Zuordnung definiert als $f'(x) = -x^2 + 2x + 5$
+
+
+\item[\emph{2.}] Wenn wir den Funktionsgraphen um 2 Einheiten nach unten verschieben wollen, müssen wir den Parameter $c$ um zwei Einheiten verkleiner. Es sei $f': \Reals \rightarrow \Reals$ die verschobene Funktion, dann ist ihre Zuordnung definiert als $f'(x) = -x^2 + 2x -1$
+\end{enumerate}
+\end{solution}
+
+\begin{solution}[ex:konfrontation_quadratische_funktion_scheitelpunkt]
+\begin{enumerate}
+\item[a)] Alle Funktionen sind quadratische Funktionen. Wir schreiben für jede ihre allgemeine Form:
+\begin{itemize}
+\item Die allgemeine Form der Funktion $f$ ist $f(x)=x^{2}$. Die Parameter lauten $a=1$ und $b=c=0$. \\
+\end{itemize} 
+\item Die allgemeine Form der Funktion $h$ ist $h(x) = -x^{2}-4x-9$. Die Parameter lauten  $a=1$, $b=-4$ und $c=-9$. \\
+\item Die allgemeine Form der Funktion $w$ ist $w(x)=x^{2}-2x+4$. Die Parameter lauten $a=1$, $b=-2$ und $c=4$. \\
+\item Die allgemeine Form der Funktion $u$ ist $u(x)=2x^{2}+3$. Die Parameter lauten $a=2$, $b=0$ und $c=3$. \\
+\item[b)] 
+%\begin{table}[h!]
+\begin{center}
+\footnotesize
+\begin{tabularx}{\linewidth}{|l|X|X|}
+\toprule
+Funktion & \makecell{ Funktionsargument \\  \& Minimalwert} & \makecell{  Funktionsargument \\  \& Maximalwert} \\
+\midrule
+$f(x) = x^2$ & $(0,0)$& $(\pm \infty, +\infty)$  \\
+\hline
+$w(x) = (x-1)^2 + 3$ & $(1,3)$ & $(\pm \infty, +\infty)$\\
+\hline
+$h(x) = -(x+2)^2 - 5$ & $(\pm \infty, -\infty)$  & $(-2,-5)$\\
+\hline
+$u(x) = 2x^2 + 3$ & $(0,3)$ & $(\pm \infty, +\infty)$ \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\item[c)] \textbullet{} Der Graph der Funktion $f$ ist in rot. \\
+\textbullet{} Der Graph der Funktion $h$ ist in olive gestrichelt. \\
+\textbullet{} Der Graph der Funktion $w$ ist in blau. \\
+\textbullet{} Der Graph der Funktion $u$ ist in blau gepunktet. \\
+\end{enumerate}
+\end{solution}
+
+\begin{solution}[ex:scheitelpunkt_lueckentext]
+\begin{enumerate}
+\item \begin{itemize}
+\item \emph{vergrössere ich}, \emph{e}
+\item \emph{verkleinere ich} \emph{e}
+\item \emph{vergrössere ich}, \emph{d}
+\item \emph{verkleinere ich} \emph{d}
+\end{itemize}
+\item Die Koordinaten des Scheitelpunktes sind immer $(d,f(d)=e)$. Man nennt den zugehörigen Funktionswert \textbf{Extremwert}, weil die zugehörige Funktion ausserhalb von $d$  immer grösser (wenn $a > 0$) oder immer kleiner (wenn $a<0$) als $e$ ist.
+\end{enumerate}
+\end{solution}
+
+\begin{solution}[ex:quad_ergaenzung]
+\begin{enumerate}
+\item[a)] Wir ergänzen den Term $x^{2}-2x+1$ zum Quadrat. Wir sehen dass:
+$$x^{2}-2x+1=x^{2}-2\cdot 1\cdot x+1=(x-1)^{2}.$$
+\item[b)] Für den Term $3x^{2}+4x+9$ haben wir:
+\begin{equation*}
+\begin{split}
+3x^{2}+4x+9 & = 3x^{2}+2\cdot \frac{2}{3}\cdot (3\cdot x)+9\\
+					 & = 3x^{2}+2\cdot \frac{2}{3}\cdot (3\cdot x)+3\cdot \frac{4}{9}-3\cdot \frac{4}{9}+9\\
+					 & = 3\bigg(x^{2}+2\cdot \frac{2}{3}\cdot x+\frac{4}{9}\bigg)-\frac{4}{3}+9\\
+					 & = 3\bigg(x+\frac{2}{3}\bigg)^{2}+\frac{23}{9}.
+\end{split}
+\end{equation*}
+\item[c)] Für den Term $x^{2}+5x+1$ haben wir:
+\begin{equation*}
+\begin{split}
+x^{2}+5x+1& = x^{2}+2\cdot \frac{5}{2}\cdot x+1\\
+					 & = x^{2}+2\cdot \frac{5}{2}\cdot x+\frac{25}{4}-\frac{25}{4}+1\\
+					 & = \bigg(x+\frac{5}{2}\bigg)^2-\frac{21}{5}.
+\end{split}
+\end{equation*}
+\item[d)] Für den Term $\frac{1}{2}x^{2}-4x+\frac{1}{4}$ haben wir:
+\begin{equation*}
+\begin{split}
+\frac{1}{2}x^{2}-4x+\frac{1}{4} & =\frac{1}{2} x^{2}-2\cdot 4\cdot \bigg(\frac{1}{2}x\bigg)+\frac{1}{4}\\
+					 & = \frac{1}{2}x^{2}-2\cdot 4\cdot \bigg(\frac{1}{2}x\bigg)+\frac{1}{2}\cdot 16-\frac{1}{2}\cdot 16+\frac{1}{4}\\
+					 & = \frac{1}{2}\bigg(x^{2}-2\cdot 4\cdot x+16\bigg)-8+\frac{1}{4}\\
+					 & = \frac{1}{2}(x-4)^{2}-\frac{31}{4}.
+\end{split}
+\end{equation*}
+\item[e)] Für den Term $-4x^{2}-3x+1$ haben wir:
+\begin{equation*}
+\begin{split}
+-4x^{2}-3x+1 & = -4x^{2}+2\cdot \frac{3}{8}\cdot (-4x)+1\\
+					 & = -4x^{2}+2\cdot \frac{3}{8}\cdot (-4x)-4\cdot \frac{9}{64}+4\cdot \frac{9}{64}+1\\
+					 & = -4\bigg(x^{2}+2\cdot \frac{3}{8}\cdot x+\frac{9}{64}\bigg)+\frac{9}{16}+1\\
+					 & = -4\bigg(x+\frac{3}{8}\bigg)^{2}+\frac{23}{9}.
+\end{split}
+\end{equation*}
+\item[f)] Für den Term $-\frac{1}{2}x^{2}-10x+100$ haben wir:
+\begin{equation*}
+\begin{split}
+-\frac{1}{2}x^{2}-10x+100& =-\frac{1}{2} x^{2}+2\cdot 10\cdot \bigg(-\frac{1}{2}x\bigg)+100\\
+					 & =- \frac{1}{2}x^{2}+2\cdot 10\cdot \bigg(-\frac{1}{2}x\bigg)-\frac{1}{2}\cdot 100+\frac{1}{2}\cdot 100+100\\
+					 & =- \frac{1}{2}\bigg(x^{2}+2\cdot 10\cdot x+ 100\bigg)+150\\
+					 & = -\frac{1}{2}(x+10)^{2}+150.
+\end{split}
+\end{equation*}
+\end{enumerate}
+\end{solution}
+
+\begin{solution}[ex:quad_eq_intro]
+\begin{enumerate}
+\item[a)] Ja, die Funktion $f$ ist quadratisch. Wir haben:
+\begin{equation*}
+\begin{split}
+f(x)& =-3x^{2}-10x-0.5+x-2x^{2}+x^{2}\\
+	  & = (-3x^{2}-2x^{2}+x^{2})+(-10x+x)-0.5\\
+	  & = -4x^{2} -9x-0.5;
+\end{split}
+\end{equation*}
+d.h. $a=-4$, $b=-9$ und $c=0.5$. 
+\item[b)] Nein, die Funktion $g$ ist nicht quadratisch. Wir haben:
+\begin{equation*}
+\begin{split}
+g(x)& =x^{2}+5x-10+4x-x^{2}+0\\
+	  & = (x^{2}-x^{2})+(5x+4x)+(-10+0)\\
+	  & = 9x-10.
+\end{split}
+\end{equation*}
+\item[c)] Nein, die Funktion $u$ ist nicht quadratisch. Wir haben:
+\begin{equation*}
+\begin{split}
+u(t)& =t^{2}+5t-10+4t-t^{3}+0\\
+	  & = -t^{3}+t^{2}+(5t+4t)+(-10+0)\\
+	  & = -t^{3}+t^{2}+9t-10.
+\end{split}
+\end{equation*}
+\item[d)] Ja, die Funktion $w$ ist quadratisch. Wir haben:
+\begin{equation*}
+\begin{split}
+w(y)& =(y-1)(y+4)+3\\
+	  & = y^{2}-y+4y-4+3\\
+	  & = y^{2} +3y-1;
+\end{split}
+\end{equation*}
+d.h. $a=1$, $b=3$ und $c=-1$. 
+\item[e)] Nein, die Funktion $w$ ist nicht quadratisch. Wir haben:
+\begin{equation*}
+\begin{split}
+w(x)& =(x+2)(x-5)(x+10)+1\\
+	  & =(x^{2}+2x-5x-10)(x+10)+1\\
+	  & =(x^{2}-3x-10)(x+10)+1\\
+	  & = x^{3}-3x^{2}-10x+10x^{2}-30x-100+1\\
+	  & = x^{3}+7x^{2}-40x-99.
+\end{split}
+\end{equation*}
+\item[f)] Ja, die Funktion $v$ ist quadratisch. Wir haben:
+\begin{equation*}
+\begin{split}
+v(q)& =f(q)+g(q)\\
+	  & = (-4q^{2} -9q-0.5)+( 9q-10)\\
+	  & = -4q^{2}+(-9q+9q)+(-0.5-10)\\
+	  & = -4q^{2}-10.5;
+\end{split}
+\end{equation*}
+d.h. $a=-4$, $b=0$ und $c=-10.5$. 
+\end{enumerate}
+\end{solution}
+
+\begin{solution}[ex:scheitelpunktformen]
+\begin{enumerate}
+\item[a)] %Wir haben $f:\mathbb{R}\to \mathbb{R}$, $f(x)=x^{2}-40x+20$. Zuerst, um quadratisch zu ergänzen, müssen wir sehen dass:
+%$$x^{2}-40x+20=x^{2}-2\cdot 20 +20.$$
+%Donc, wir brauchen das Term $20^{2}$ um das perfekt Quadrat $(x-20)^{2}$ zu haben.  Wir werden es addieren und dann subtrahieren:
+Wir finden
+\begin{IEEEeqnarray*}{rCl}
+x^{2}-40x+20 &=& (x-20)^{2}-380
+\end{IEEEeqnarray*}
+Die Scheitelpunktform von $f$ wird folglich mit $d=20$ und $e=-380$ erreicht.
+\item[b)] %Wir haben $g:\mathbb{R}\to \mathbb{R}$, $g(y)=5y^{2}-\frac{1}{2}y+40$. Wir gehen wie oben und wie im Beweis des Theorems $31$ vor:
+\begin{equation*}
+\begin{split}
+5y^{2}-\frac{1}{2}y+40& =5y^{2}-2\cdot 5\cdot \frac{1}{20}y+40\\
+	  & = 5y^{2}-2\cdot 5\cdot \frac{1}{20}y+5\cdot \frac{1}{400}-5\cdot \frac{1}{400}+40\\
+	  & =5\bigg(y^{2}-2\cdot \frac{1}{20}y+ \frac{1}{400}\bigg)-\frac{1}{80}+40\\
+	  & =5\bigg(y- \frac{1}{20}\bigg)^{2}+\frac{3199}{80}.
+\end{split}
+\end{equation*}
+%Wir haben die Scheitelpunktform von $g$ erreicht, wo $d=\frac{1}{20}$ und $e=\frac{3199}{80}$. 
+Wir finden $g(y) = 5\bigg(y- \frac{1}{20}\bigg)^{2}+\frac{3199}{80}$
+\item[c)] %Wir haben $h:\mathbb{R}\to \mathbb{R}$, $h(z)=-3z^{2}-\frac{3}{5}z+10$. Wir gehen wie oben und wie im Beweis des Theorems $31$ vor:
+\begin{equation*}
+\begin{split}
+-3z^{2}-\frac{3}{5}z+10& =-3z^{2}+2\cdot (-3)\cdot \frac{1}{10}z+10\\
+	  & = -3z^{2}+2\cdot (-3)\cdot \frac{1}{10}z+(-3)\cdot \frac{1}{100}+3\cdot \frac{1}{100}+ 10\\
+	  & =-3\bigg(z^{2}+2\cdot \frac{1}{10}z+\frac{1}{100}\bigg)+\frac{1003}{100}\\
+	  & =-3\bigg(z+\frac{1}{10}\bigg)^{2}+\frac{1003}{100}.
+\end{split}
+\end{equation*}
+Die Scheitelpunktform von $h$ wird durch $d=-\frac{1}{10}$ und $e=\frac{1003}{100}$ erreicht.
+\item[d)] Wir haben $v:\mathbb{R}\to \mathbb{R}$, $v(r)=-10r^{2}-20r+10$. Wir gehen wie oben und wie im Beweis des Theorems $31$ vor:
+\begin{equation*}
+\begin{split}
+-10r^{2}-20r+10& =-10(r^{2}+2r-1)\\
+	  & = -10(r^{2}+2r+1-1-1)\\
+	  & =-10\bigg[(r+1)^{2}-2\bigg]\\
+	  & =-10(r+1)^{2}+20.
+\end{split}
+\end{equation*}
+Die Scheitelpunktform von $v$ wird mit $d=-1$ und $e=20$ erreicht.
+\end{enumerate}
+\end{solution}
+
+\begin{solution}[ex:nullstellen]
+\begin{enumerate}
+\item[a)] Damit ein Produkt $a\cdot b$ Null ergibt, muss entweder $a=0$, oder $b=0$, oder $a=b=0$ gelten.
+
+Wir haben $f:\mathbb{R}\to \mathbb{R}$, $f(x)=(x-3)(x+10)$. Wir sehen, dass der erste Term $(x-3)$ genau dann Null ergibt, wenn $x=3.$ Der zweite Term ergibt genau dann Null, wenn $x=-10)$ Die Funktion $f$ hat also zwei Nullstellen: $3$ und $-10$. 
+\item[b)] Wir haben $g:\mathbb{R}\to \mathbb{R}$, $g(y)=4(y-3)^{2}+10$. 
+Da der Term $4(y-3)^2$ immer nicht-negativ ist und der Term $10$ positiv ist, kann $g$ niemals nicht-positiv sein. Die Funktion $g$ hat deshalb keine Nullstellen.
+\item[c)] Wir haben $h:\mathbb{R}\to \mathbb{R}$, $h(z)=-(-z-3)^{2}-10$. 
+
+Ähnlich wie $b)$: Da der Term $-(z-3)^2$ für jedes $z$ kleiner oder gleich null ist, und da der Term $-10$ strikt kleiner als Null ist, kann $h$ niemals grösser oder gleich Null sein. 
+\item[d)] Wir haben $v:\mathbb{R}\to \mathbb{R}$, $v(t)=(t+1)(t-1)$. Wir sehen dass $(t+1)$ für $t=-1$ Null ergibt und $(t-1)$ für $t=1$ Null ergibt. Die Funktion $v$ hat deshalb zwei Nullstellen: $1$ und $-1$. 
+\item[e)] Wir haben $w:\mathbb{R}\to \mathbb{R}$. Die Funktion $w$ ist Null, wenn gilt $-(s-6)^{2}+10 = 0$. Wir können umformen:
+\begin{IEEEeqnarray*}{rCrCl}
+&&-(s-6)^{2}+10 &=& 0\\
+\iff & \quad & -(s-6)^{2} &=& -10\\
+\iff & \quad & (s-6)^{2} &=& 10\\
+\iff & \quad & (s-6) &=& \pm \sqrt{10}\\
+\iff & \quad & s &=& \pm \sqrt{10} + 6
+\end{IEEEeqnarray*}
+Der Funktionswert ist deshalb in den Argumenten $s_1 = \sqrt{10} + 6$ und $s_2 = -\sqrt{10} + 6$ null.
+  
+\item[f)] Wir haben $p:\mathbb{R}\to \mathbb{R}$, $p(q)=(q+1)^{2}-1$.
+Wir können sehen, dass $p(0) = 0 = p(-2)$. Die Funktion $p$ hat also Nullstellen in $0$ und $-2$.
+\end{enumerate}
+\end{solution}
+
+\begin{solution}[ex:lueckentext_scheitelpunkt_uebungen]
+\begin{enumerate}[label=\alph*)]
+\item Wenn das Vorzeichen von $a$ positiv ist, hat die Funktion als Extremwert ein Minimum und es gilt $f(x) \geqslant e, \; \forall x \in \Reals.$ Andernfalls, wenn das Vorzeichen von $a$ negativ ist, hat die Funktion als Extremwert ein Maximum und es gilt $f(x) \leqslant e, \; \forall x \in \Reals.$
+\item Wenn $e$ gleich Null ist, hat $f$ genau eine Nullstelle.
+
+\item Wenn $e$ ungleich Null ist und sich das Vorzeichen von $a$ und $e$ unterscheidet, hat $f$ genau zwei Nullstelle(n).
+
+\item Wenn $e$ ungleich Null ist und $a$ und $e$ das gleiche Vorzeichen haben, hat $f$ keine Nullstelle.
+\end{enumerate}
+\end{solution}
+\begin{solution}[ex:funktion_finden]
+\begin{enumerate}
+\item[a)] Der Scheitelpunkt der Funktion $f$ ist $(2,3)$. Das bedeutet, dass die Scheitelpunktform $f(x)=a(x-2)^{2}+3,$ für ein $a\in \Reals$ lautet. Wir müssen nur $a$ bestimmen. Für das nutzen wir die Tatsache dass $f(5)=12$. Wir finden:
+$$f(5)=a(5-2)^{2}+3=9a+3$$
+daraus folgt:
+$$9a+3=12$$
+Und somit muss $a=1$ gelten.
+Die Zuordnungsvorschrift für $f$ lautet also: $f(x)=(x-2)^{2}+3$. 
+\item[b)] Der Scheitelpunkt der Funktion $g$ ist $(1,9)$. Das bedeutet, dass die Scheitelpunktform $g(x)=a(x-1)^{2}+9$ lautet, für ein $a\in\Reals$. Wir müssen nur $a$ bestimmen. Wir finden: 
+$$g(0)=a(0-1)^{2}+9=a+9$$
+darauf folgt:
+$$a+9 = 1 \Rightarrow a = -8$$
+Somit finden wir $g(x)=-8(x-1)^{2}+9$. 
+\end{enumerate}
+\end{solution}
+
+\begin{solution}[ex:scheitelpunkt_und_ordinatenabschnitt]
+\begin{enumerate}
+\item[a)] Scheitelpunkt für $f$: $(1, 2)$ Ordinatenabschnitt: $f(0)= 3$
+%Die Funktion $f$ ist in ihrer Scheitelpunktform geschreiben. Donc, der Scheitelpunkt der Funktion $f$ ist $(1,2)$. Für der Ordinatenabschnitt wir bewerten $f(0)=(0-1)^{2}+2=3$, donc der Ordinatenabschnitt ist $(0,3)$. 
+\item[b)] Scheitelpunkt für $g$: $(-1,3)$, Ordinatenabschnitt: $g(0)= 4$
+%
+%Die Funktion $g$ ist in ihrer Scheitelpunktform geschreiben. Donc, der Scheitelpunkt der Funktion $g$ ist $(-1,3)$. Für der Ordinatenabschnitt wir bewerten $g(0)=(0+1)^{2}+3=4$, donc der Ordinatenabschnitt ist $(0,4)$. 
+\item[c)] Scheitelpunkt für $h$: $(3,4)$ Ordinatenabschnitt: $h=0 = 13$
+%Die Funktion $h$ ist in ihrer Scheitelpunktform geschreiben. Donc, der Scheitelpunkt der Funktion $h$ ist $(3,4)$. Für der Ordinatenabschnitt wir bewerten $h(0)=(0-3)^{2}+4=13$, donc der Ordinatenabschnitt ist $(0,13)$. 
+\item[d)] Scheitelpunkt für $i$: $(-4,23)$, Ordinatenabschnitt: $i(0)=39$
+% Wir schreiben die Funktion $i$ in ihrer Scheitelpunktform. Wir haben:
+%$$i(y)=y^{2}-8y+7=-(y^{2}+8y-7)=-[(y+4)^{2}-16-7]=-(y+4)^{2}+23.$$
+%Donc, der Scheitelpunkt der Funktion $i$ ist $(-4,23)$, und der Ordinatenabschnitt ist $(0,39)$, weil $i(0)=4^{2}+23=39.$ 
+\item[e)] Scheitelpunkt $j$: $(-1,2)$, Ordinatenabschnitt: $j(0)=3.$ 
+%Wir schreiben die Funktion $j$ in ihrer Scheitelpunktform. Wir haben:
+%$$j(l)=l^{2}+2l+3=l^{2}+2l+1+2=(l+1)^{2}+2.$$
+%Donc, der Scheitelpunkt der Funktion $j$ ist $(-1,2)$, und der Ordinatenabschnitt ist $(0,3)$, weil $i(0)=1^{2}+2=3.$ 
+\item[f)] Scheitelpunkt $k$: $(\frac{1}{2},\frac{23}{4})$, Ordinatenabschnitt: $k(0) = 6$
+%Wir schreiben die Funktion $k$ in ihrer Scheitelpunktform. Wir haben:
+%$$k(m)=m^{2}-m+6=m^{2}-2\frac{1}{2}m+\frac{1}{4}-\frac{1}{4}+6=\bigg(m-\frac{1}{2}\bigg)^{2}+\frac{23}{4}.$$
+%Donc, der Scheitelpunkt der Funktion $k$ ist $(\frac{1}{2},\frac{23}{4})$, und der Ordinatenabschnitt ist $(0,6)$, weil $i(0)=\bigg(-\frac{1}{2}\bigg)^{2}+\frac{23}{4}=6.$ 
+\end{enumerate}
+\end{solution}
+
+\begin{solution}[ex:scheitelpunktform_von_nullstellen]
+Da die Symmetrieachse durch den Scheitelpunkt verläuft und beide Nullstellen die gleiche Distanz zur Symmetrieachse haben müssen, wissen wir, dass der Scheitelpunkt die x-Koordinate $x=1$ hat.
+Da der Extremwert $-2$ als bereits gegeben ist, wissen wir somit, dass der Scheitelpunkt an der Stelle $(1,-2)$ ist.
+Das heisst, die Zuordnungsvorschrift für $f$ lautet $f(x) = a(x-1)^2 -2,$ und wir müssen noch das $a$ finden.
+Wir können eine der Nullstellen einsetzen und finden: $f(-1) = a(-2)^2 -2 = 4a - 2.$
+Wir wissen also, dass $4a-2 = 0$ gelten muss und finden deshalb, $a=0.5$.
+Somit muss $f(x)=\frac{1}{2}(x-1)^{2}-2$.
+\end{solution}
 
 %\label{lastpage}
 \end{document}
