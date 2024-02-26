@@ -3,7 +3,7 @@
 \usepackage[widelayout,sf,ngerman, solution, copyright, hyperref]{custom23}
 %\stefancopyright=true
 \newcommand{\docName}{Quadratische Funktionen}
-\newcommand{\docVersion}{Version 1.0.0}
+\newcommand{\docVersion}{Version 1.0.1}
 \newcommand{\klasse}{Kantonsschule Wettingen, Klasse G1D}
 
 \fancyhead[L]{\klasse}
@@ -647,7 +647,7 @@ Falls Sie den Umgang mit dieser Notation und Mengen im allgemeinen noch etwas ü
 \end{remark}
 
 
-\begin{exercise}
+\begin{exercise}\label{ex:1.7}
 Es seien $f$ und $g$ wie in Beispiel~\ref{exmpl: funktionen_multiplikation}.
 \begin{enumerate}[label=\alph*)]
 \item Bestimmen Sie die Formel für die Funktion $f \cdot g$
@@ -1944,7 +1944,179 @@ $g, \blacksquare, r, K$ und $\S$ beschreiben ebenfalls die gleiche Funktion.
 \begin{solution}[ex:class_injektiv_surjektiv_bijektiv]
 Die Funktionen $f, v$ und $u$ sind bijektiv. Die Funktion $h$ ist injektiv, aber nicht surjektiv. Die Funktionen $g$ und $w$ sind weder injektiv, noch surjektiv.
 \end{solution}
+\begin{solution}[ex:einfuehrung_lin_comb_func]
+\footnotesize
+Wir haben 
+\begin{IEEEeqnarray*}{rCrClCrCrClCrCrCl}
+f &:& \mathbb{R} &\rightarrow& \mathbb{R}, &\qquad \qquad& g &:& \mathbb{R} &\rightarrow & \mathbb{R} & \qquad \qquad & (f+g) &:& \Reals & \rightarrow & \Reals \\
+&& x&\mapsto& -2x+5 
+&&
+&& y &\mapsto& 0.5y-10
+&&
+&& x &\mapsto& -1.5x -5
+\end{IEEEeqnarray*}
+\begin{enumerate}[label=\alph*)]
+\item
+\begin{enumerate}[label=\roman*)]
+\item Es gibt mehrere Strategien, die Funktionsgraphen der Funktionen zu identifizieren:
+\begin{itemize}
+\item[Variante 1:] Wir berechnen den Ordinatenabschnitt jeder Funktion: $f(0) = 5$, $g(0) = -10$, $(f+g)(0) = -5$. Das heisst, wir finden $g(0) < (f+g)(0) < f(0)$. Entsprechend müssen wir, wenn wir unten im Graphen, an der Position $(0,-20)$ anfangen und den Graphen vertikal an der y-Achse entlang hoch laufen, zuerst $g$ antreffen, dann $(f+g)$ und zum Schluss $f$. Da wir als erstes die blaue Gerade antreffen, wissen wir, dass diese $g$ sein muss. Als nächstes treffen wir die gestrichelte Gerade an, diese muss also $(f+g)$ entsprechen. Als letztes finden wir die rote Gerade, welche $f$ entsprechen muss.
+\item[Variante 2:] Wir observieren, dass der Funktionswert von $f$ und $f+g$ abnimmt, wenn das Funktionsargument grösser wird, da die Koeffizienten vor dem $x$ jeweils negativ sind (für $f$ ist der Koeffizient $-2$, für $f+g$ ist der Koeffizient $-1.5$). $g$ hat als einzige Funktion einen positiven Koeffizienten vor dem Funktionsargument, deshalb muss die einzige Gerade die steigt (die blaue Gerade), dem Funktionsgraphen von $g$ entsprechen.
 
+Wir bemerken, dass die durchgezogene Gerade steiler nach unten abfällt als die gestrichelte Gerade. Das heisst, der Steigungskoeffizient der durchgezogenen Geraden muss kleiner sein, als der Steigungskoeffizient der gestrichelten Geraden. Da der Steigungskoeffizient von $f$ gleich $-2$ ist und da $-2$ kleiner als $-1.5$ ist, wissen wir, dass $f$ die rote Gerade $f$ entspricht. (Alternativ kann man hier auch mit dem Ordinatenabschnitt arbeiten: $f$ hat als einzige Funktion einen positiven Ordinatenabschnitt, daraus folgt, dass die rote Gerade $f$ entspricht.
+\end{itemize}
+
+\item wir finden:
+\begin{IEEEeqnarray*}{rCrCl}
+(f-g) &: & \Reals & \rightarrow & \Reals\\
+& & x & \mapsto & f(x) - g(x) = -2x+5 - (0.5x-10) = -2.5x + 15
+\end{IEEEeqnarray*}
+\end{enumerate}
+\item \begin{IEEEeqnarray*}{rCrClCrCrCl}
+v &:& ]-\infty, -1[ \cup [1, +\infty[ &\rightarrow& \mathbb{R}, &\qquad \qquad& u &:& \mathbb{R} &\rightarrow & \mathbb{R}\\
+&& x&\mapsto&  \frac{1}{x} & &&& y &\mapsto& 1+y
+\end{IEEEeqnarray*}
+\begin{enumerate}[label=\roman*)]
+\item Die Funktion $v+u$ ist für die Definitionsmenge $]-\infty, -1[ \cup [1, +\infty[$ gut definiert und wir finden
+\begin{IEEEeqnarray*}{rCrCl}
+(v+u) &: & ]-\infty, -1[ \cup [1, +\infty[ & \rightarrow & \Reals\\
+& & x & \mapsto & v(x) + u(x) = \frac{1}{x} +  1+x
+\end{IEEEeqnarray*}
+\item  Die Funktion $v-u$ ist für die Definitionsmenge $]-\infty, -1[ \cup [1, +\infty[$ gut definiert und wir finden
+\begin{IEEEeqnarray*}{rCrCl}
+(v-u) &: & ]-\infty, -1[ \cup [1, +\infty[ & \rightarrow & \Reals\\
+& & x & \mapsto & v(x) - v(x) = \frac{1}{x} - (1+x) = \frac{1}{x} - x - 1 
+\end{IEEEeqnarray*}
+\item Der Term $\frac{1}{x}$ explodiert, wenn $x$ nahe gegen unendlich strebt: wenn $x$ eine positive Zahl, nahe an Null ist, dann ist $\frac{1}{x}$  sehr gross. Wenn $x$ eine negative Zahl, nahe an Null ist, dann ist $\frac{1}{x}$ eine sehr grosse negative Zahl.
+
+Wir können das veranschaulichen: Für positive $x$ kleiner als eins gibt es eine natürliche Zahl $N_x$, so dass $\frac{1}{N_x+1} \leqslant x < \frac{1}{N_x}$ gilt (Das lässt sich mit dem Zahlenstrahl verdeutlichen).
+
+dann finden wir $\frac{1}{x} > \frac{1}{\frac{1}{N_x}} = N_x$.
+Je näher $x$ an Null liegt, desto grösser muss das $N_x$ sein, damit $\frac{1}{N_x+1} \leqslant x < \frac{1}{N_x}$ noch gilt. Und da der Term $\frac{1}{x}$ immer grösser als $N_x$ ist, wird der Term $\frac{1}{x}$ grösser, je näher $x$ an Null liegt.
+
+Für negative $x$ funktioniert die Argumentation ebenfalls, für diese gilt dann aber dass $-\frac{1}{N_x+1} \geqslant x > -\frac{1}{N_x}$ und $\frac{1}{x} < \frac{1}{-\frac{1}{N_x}} = -N_x$.
+\end{enumerate}
+\end{enumerate}
+
+\begin{center}
+\resizebox{0.7\textwidth}{!}{
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=center,
+    xlabel={$x$},
+    ylabel={$y$},
+    xmin=-10, xmax=10,
+    ymin=-20, ymax=40,
+    legend pos=outer north east,
+    %title={Funktionsgraph von $f(x) = -2x + 1$, $g(x) = 0.5x -2$ und ihren linearen Kombinationen},
+    clip=false,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+]
+% f(x) = -2x + 4
+\addplot[domain=-10:10, samples=100, red] {-2*x + 5};
+\addlegendentry{$f(x) = -2x + 5$}
+% g(x) = x^2 + 1
+\addplot[domain=-10:10, samples=100, blue] {0.5*x-10};
+\addlegendentry{$g(x) = 0.5x-10$}
+% f+g
+\addplot[domain=-10:10, samples=100, violet, dashed] {0.5*x-10 + -2*x + 5};
+\addlegendentry{$f+g$}
+% f*g
+%\addplot[domain=-3:3, samples=100, orange, dashdotted] {(-2*x + 1) * (0.5*x-2)};
+%\addlegendentry{$f \cdot g$}
+% f-g
+\addplot[domain=-10:10, samples=100, green!50!black, densely dotted] {-2*x + 5 - (0.5*x-10)};
+\addlegendentry{$f-g$}
+\end{axis}
+\end{tikzpicture}
+}
+\end{center}
+\end{solution}
+\begin{solution}[ex:1.7]
+\begin{IEEEeqnarray*}{rCrClCrCrCl}
+f &:& \mathbb{R} &\rightarrow& \mathbb{R}, &\qquad \qquad& g &:& \mathbb{R} &\rightarrow & \mathbb{R}\\
+&& x&\mapsto& -2x+5 & &&& y &\mapsto& 0.5y-10
+\end{IEEEeqnarray*}
+\begin{enumerate}[label=\alph*)]
+\item \begin{IEEEeqnarray*}{rCrClCr}
+(f \cdot g) &: & \Reals & \rightarrow & \Reals &&\\
+& & x & \mapsto & f(x) \cdot g(x) &=& (-2x+5) \cdot (0.5x-10)\\
+&&&&&=& -2x(0.5x-10) + 5(0.5x-10)\\
+&&&&&=& -x^2 +22.5x -50
+\end{IEEEeqnarray*}
+\item Der Funktionswert von $g$ ist Null genau dann, wenn das Funktionsargument gleich $20$ ist: $g(20) = 0.5\cdot 20 - 10 = 0$. Entsprechend passen wir die Definitionsmenge an:
+
+\begin{IEEEeqnarray*}{rCrClCr}
+(\frac{f}{g}) &: & \Reals \setminus \{20\} & \rightarrow & \Reals &&\\
+& & x & \mapsto & \frac{f(x)}{g(x)} &=& \frac{-2x+5}{0.5x-10}
+\end{IEEEeqnarray*}
+
+\item 
+
+\begin{center}
+\resizebox{0.7\textwidth}{!}{
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=center,
+    xlabel={$x$},
+    ylabel={$y$},
+    xmin=-10, xmax=40,
+    ymin=-20, ymax=80,
+    legend pos=outer north east,
+    %title={Funktionsgraph von $f(x) = -2x + 1$, $g(x) = 0.5x -2$ und ihren linearen Kombinationen},
+    restrict y to domain=-20:80,
+    clip=false,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+]
+% f(x) = -2x + 4
+\addplot[domain=-10:40, samples=100, red] {-2*x + 5};
+\addlegendentry{$f(x) = -2x + 5$}
+% g(x) = x^2 + 1
+\addplot[domain=-10:40, samples=100, blue] {0.5*x-10};
+\addlegendentry{$g(x) = 0.5x-10$}
+% f+g
+\addplot[domain=-0:25, samples=1000, violet, dashed] {(0.5*x-10 )* (-2*x + 5)};
+%\addlegendentry{$f+g$}
+% f*g
+%\addplot[domain=-3:3, samples=100, orange, dashdotted] {(-2*x + 1) * (0.5*x-2)};
+\addlegendentry{$f \cdot g$}
+% f-g
+
+\addplot[domain=-10:19, samples=100, green!30!black, densely dotted] {(-2*x + 5)/(0.5*x-10 )};
+\addplot[domain=21:40, samples=100, green!30!black, densely dotted] {(-2*x + 5)/(0.5*x-10 )};
+\addplot[domain=19:21, samples=1000, green!30!black, densely dotted] {(-2*x + 5)/(0.5*x-10 )};
+\addlegendentry{$\frac{f}{g}$}
+\end{axis}
+\end{tikzpicture}
+}
+\end{center}
+\item \begin{IEEEeqnarray*}{rCrClCrCrCl}
+v &:& \mathbb{R}\setminus \{0\} &\rightarrow& \mathbb{R}, &\qquad \qquad& u &:& \mathbb{R} &\rightarrow & \mathbb{R}\\
+&& x&\mapsto&  \frac{1}{x} & &&& y &\mapsto& 1+y
+\end{IEEEeqnarray*}
+\begin{enumerate}[label=\roman*)]
+\item \begin{IEEEeqnarray*}{rCrClCr}
+(u \cdot v) &: & \Reals \setminus \{0\} & \rightarrow & \Reals &&\\
+& & x & \mapsto & u(x) \cdot v(x) &=& (1+x)\cdot (\frac{1}{x}) = \frac{1}{x} + 1\\
+\end{IEEEeqnarray*}
+\item Der Funktionswert von $v$ beträgt nie Null, deshalb finden wir:
+\begin{IEEEeqnarray*}{rCrClCr}
+\frac{u}{v} &: & \Reals \setminus \{0\} & \rightarrow & \Reals &&\\
+& & x & \mapsto & \frac{u(x)}{v(x)} &=& \frac{1+x}{\frac{1}{x}} = x^2 + x\\
+\end{IEEEeqnarray*}
+\item Der Funktionswert von $u$ beträgt Null im Punkt $-1$. Somit finden wir:
+\begin{IEEEeqnarray*}{rCrClCr}
+\frac{v}{u} &: & \Reals \setminus \{0, -1\} & \rightarrow & \Reals &&\\
+& & x & \mapsto & \frac{v(x)}{u(x)} &=& \frac{\frac{1}{x}}{1+x} = \frac{1}{x^2 + x}\\
+\end{IEEEeqnarray*}
+\end{enumerate}
+\end{enumerate}
+
+\end{solution}
 \begin{solution}[ex:schlecht_definiert]
 Die Funktionen $f$, $g$, und $w$ sind schlecht definiert. $f(0)$ und $g(2)$ liegen nicht in der jeweiligen Zielmenge $\mathbb{R}_{+},$ respektive $\lbrack 0, 1 \rbrack$ (siehe Seite~\pageref{terminologie} für die Definition von Mengen und Intervallen). Die Funktion $w$ ist schlecht definiert, weil dem Funktionsargument $\clubsuit$ zwei verschiedene Werte zugewiesen werden.
 \end{solution}
