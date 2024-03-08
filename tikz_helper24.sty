@@ -1,0 +1,37 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mytikzcommands}[2024/03/07 Custom TikZ Commands]
+
+% Load required package
+\RequirePackage{tikz}
+\RequirePackage{xparse}
+
+% TikZ libraries
+\usetikzlibrary{arrows.meta} % For more arrow options
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% Tikz Grids %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% *|xlabel|ylabel|xmin|xmax|ymin|ymax
+\NewDocumentCommand{\drawcustomgrid}{smmmmmm}{% wlabels, xlabel, ylabel, xmin, xmax, ymin, ymax
+    % Draw axes
+    \draw[->] (#4 , 0) -- (#5 ,0) node[right] {\footnotesize $#2$};
+    \draw[->] (0,#6) -- (0,#7) node[above] {\footnotesize $#3$};
+    \IfBooleanF{#1}
+    {%
+		% Draw grid
+    		\draw[very thin, color=gray!30] (#4 , #6) grid (#5 , #7);
+        		
+    		% Add ticks and labels on x-axis
+	    \foreach \x in {#4 ,...,-1}
+	        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+	    \foreach \x in {1,...,#5}
+	        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+	    
+	    % Add ticks and labels on y-axis
+	    \foreach \y in {#6,...,-1}
+	        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+	    \foreach \y in {1,...,#7}
+	        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    }%
+}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
