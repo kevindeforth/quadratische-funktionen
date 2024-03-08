@@ -1,0 +1,146 @@
+\documentclass[12pt]{article}
+%\usepackage{pgfkeys}
+\usepackage[widelayout,sf,ngerman, solution, copyright, hyperref, pagecount]{custom23}
+\usepackage{func_helper}
+%\stefancopyright=true
+\newcommand{\docName}{Quadratische Funktionen}
+%\newcommand{\docVersion}{Version 0.0.0}
+\newcommand{\klasse}{Kantonsschule Wettingen, Klasse G1D}
+
+\fancyhead[L]{\klasse}
+\fancyhead[R]{\today}%, \docVersion}
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\usepackage{wrapfig}
+
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
+
+\usepackage{setspace}
+\usepackage{subcaption}
+\setboolean{solution}{true}
+
+\usepackage{soul}
+
+\begin{document}
+\begin{center}
+\Large \textbf{Formatives Assessment Quadratische Funktionen}\\[1em]
+\footnotesize
+\end{center}
+{\footnotesize
+\subsubsection*{Hinweis}
+Dieses Assessment hat rein formativen Charakter. Das Resultat nimmt keinen Einfluss auf Ihre Zeugnisnote, sondern dient einzig dazu, Lerninhalte zu identifizieren, die noch mehr Ihrer Aufmerksamkeit benötigen.
+\begin{itemize}
+\item $\mathbb{R}$ ist die Menge der reellen Zahlen
+\item $\mathbb{R} \setminus \{0\}$ ist die Menge der reellen Zahlen ohne die Zahl $0$.
+\item Das Symbol $\forall$ bedeutet \emph{``für alle''}, oder \emph{``für jedes''}. Der Ausdruck $\forall x \in A$ bedeutet: \emph{``Für jedes Element $x$ der Menge $A$''}.
+\end{itemize}
+}
+\subsection*{Aufgabe 1}
+
+\realFun{f}{t}{s(t+3)^2 - 5}
+Es sei $s \in \mathbb{R} \setminus \{0\}$ ein reeller Parameter und $f$ definiert wie folgt. \printFunDef{f}
+\begin{enumerate}[label=\alph*)]
+\item Vervollständigen Sie den Lückentext mit den Symbolen $<,>, \leqslant, \geqslant,0,2$ und den Worten \texttt{Maximum}, \texttt{Minimum}, \texttt{oben} und \texttt{unten}.
+\begin{quote} \doublespacing
+Wenn $s \; \rule{0.5cm}{0.5pt} \; 0$ gilt, dann ist der Funktionsgraph von $f$ nach \rule{2cm}{0.5pt} geöffnet. In diesem Fall gilt $f(t)\; \rule{0.5cm}{0.5pt} \; -5, \; \forall t \in \Reals$ und die Funktion $f$ weist ein \rule{2cm}{0.5pt} auf. Die Funktion hat in diesem Fall genau \rule{0.5cm}{0.5pt} Nullstellen.
+
+
+Wenn $s \; \rule{0.5cm}{0.5pt} \; 0$ gilt, dann ist der Funktionsgraph von $f$ nach \rule{2cm}{0.5pt} geöffnet. In diesem Fall gilt $f(t)\; \rule{0.5cm}{0.5pt} \; -5, \; \forall t \in \Reals$ und die Funktion $f$ weist ein \rule{2cm}{0.5pt} auf. Die Funktion hat in diesem Fall genau \rule{0.5cm}{0.5pt} Nullstellen.
+\end{quote}
+\item Bestimmen Sie den Ordinatenabschnitt von $f$
+\item Welcher Funktionsterm entsteht, wenn Sie den Funktionsgraph von $f$ um $2$ Einheiten nach oben und um $3$ Einheiten nach rechts verschieben?
+\end{enumerate}
+
+
+%\subsection*{Aufgabe 2}
+%\realFun{g}{t}{4(t-3)^2 + d_g}
+%Es seien $d_g \in \mathbb{R}$ ein reeller Parameter und die Funktion $g$ definiert wie folgt. \printFunDef{g}
+%Bestimmen Sie die Menge der Elemente, für welche $g$ genau
+%\begin{enumerate}[label=\alph*)]
+%\item keine Nullstelle hat;
+%\item eine Nullstelle hat;
+%\item zwei Nullstellen hat.
+%\end{enumerate}
+
+\subsection*{Aufgabe 2}
+\realFun{h}{x}{x^2 - 2x + 1}% nutzen, um binomische Formel zu repetieren.
+\realFun{u}{x}{-3x^2 - 2x + 1}
+Es seien $u$ und $h$ zwei Funktionen wie folgt definiert
+\begin{IEEEeqnarray*}{rCrClXrCrCl}
+\getRelation{h} & \qquad &\getRelation{u}\\
+\getMap{h} & \qquad & \getMap{u}.
+\end{IEEEeqnarray*}
+
+\begin{enumerate}[label=\alph*)]
+\item Bestimmen Sie den Ordinatenabschnitt von $h$ und $u$
+\item Bestimmen Sie den Scheitelpunkt von $h$ und $u$\\[5cm]
+\end{enumerate}
+
+\subsection*{Aufgabe 3}
+\realFun{v}{x}{}
+\realFun{g}{x}{(x-1)^1 + 1}
+Es sei $\getRelation*{v}$ eine quadratische Funktion mit Nullstellen in $-4$ und $-8$. Der Funktionswert von $v$ im Scheitelpunkt ist $2$. Bestimmen Sie den Funktionsterm von $v$.
+%Wenn der Parameter $d_g$ \rule{2cm}{0.5pt} ist, hat $g$ genau \rule{2cm}{0.5pt} Nullstellen. Wenn der Parameter $d_g$  \rule{2cm}{0.5pt} ist, hat $g$ genau \rule{2cm}{0.5pt} Nullstellen. Und wenn $d_g$  \rule{2cm}{0.5pt} ist, dann hat $g$ \rule{2cm}{0.5pt} Nullstellen.
+%\begin{enumerate}[label=\alph*)]
+%\item 
+%\item Welche Werte kann Parameter $d_g$ annehmen, damit die Funktion $g$: \begin{enumerate}
+%\item keine Nullstelle hat?
+%\item eine Nullstelle hat?
+%\item zwei Nullstellen hat?
+%\end{enumerate} 
+%\end{enumerate}
+
+
+
+%\subsection*{Aufgabe 3}
+%\realFun{f}{t}{at^2 + bt + c}
+%Es sei die Funktion $f$ definiert wie folgt.
+%\printFunDef{f}
+%\begin{enumerate}
+%\item Der Funktionsgraph
+%\end{enumerate}
+%
+%Es seien $a,b,c,d$ und $e$ reelle Zahlen, wobei $a\neq 0$ gilt und die Funktionen $f$ und $g$ definiert sind als
+%\begin{IEEEeqnarray*}{rCrClXrCrCl}
+%\getRelation{f} & \qquad &\getRelation{g}\\
+%\getMap{f} & \qquad & \getMap{g}.
+%\end{IEEEeqnarray*}
+%
+%\begin{enumerate}[label=\alph*)]
+%\item Bestimmen Sie den Ordinatenabschnitt von $f$ und $g$.\\[4cm]
+%\item Bestimmen Sie den Scheitelpunkt von $f$ und $g$.\\[4cm]
+%\item Bestimmen Sie für jede der folgenden Aussagen, ob diese richtig oder falsch sind: \begin{enumerate}[label=\roman*)]
+%\item Es gilt $f(-\frac{b}{2} + t) = f(-\frac{b}{2}-t),$ für alle $t\in \Reals$.
+%\item Es gilt $g(t+d) = g(t-d),$ für alle $t\in \Reals$.
+%\item Die Funktion $f$ hat ein Minimum genau dann, wenn $a$ negativ ist.
+%\item Die Funktion $g$ ist offensichtlich immer positiv, wenn $a$ positiv ist.
+%\end{enumerate}
+%\item Korrigieren Sie folgende Aussage: \verb=Der Scheitelpunkt entspricht dem Punkt, in dem die Funktion ihr Maximum erreicht.=
+%\end{enumerate}
+%
+%
+%Vervollständigen Sie folgenden Text:
+%{
+%\onehalfspacing
+%Die Funktion $g$ ist eine \rule{2cm}{0.5pt} Funktion mit Scheitelpunkt in \rule{2cm}{0.5pt}. Der Scheitelpunkt entspricht dem Punkt, in dem die Funktion ihr \rule{2cm}{0.5pt} erreicht, wenn $a$ positiv ist. Wenn $a$ negativ ist, erreicht die Funktion im Scheitelpunkt ihr \rule{2cm}{0.5pt}.
+%
+%Der Funktionswert im Scheitelpunkt entspricht dem Extremwert der Funktion. 
+%
+%
+%Die Funktion $g$ ist symmetrisch um 
+%Eine quadratische Funktion 
+%}
+%- Bestimmen des Scheitelpunktes:
+%   - wenn in scheitelpunktform
+%   - wenn in der allgemeinen Form
+%   - anhand von 3 
+%- Bestimmen der Extremwerte (min / max)
+%- Bestimmen der Symmetrieachse
+%
+%Bestimmen Sie für die folgenden Funktionen den Scheitelpunkt
+%sowie die Extremwerte
+% minimum, maximum bestimmen
+\label{lastpage}
+
+\end{document}

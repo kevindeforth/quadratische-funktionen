@@ -1,0 +1,169 @@
+\documentclass[12pt]{article}
+\usepackage{pgfkeys}
+\usepackage[widelayout,sf,ngerman, solution, copyright, hyperref, pagecount]{custom23}
+%\stefancopyright=true
+\newcommand{\docName}{Quadratische Funktionen}
+%\newcommand{\docVersion}{Version 0.0.0}
+\newcommand{\klasse}{Kantonsschule Wettingen, Klasse G1D}
+
+\fancyhead[L]{\klasse}
+\fancyhead[R]{\today}%, \docVersion}
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\usepackage{wrapfig}
+
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
+
+
+\usepackage{subcaption}
+\setboolean{solution}{true}
+
+\usepackage{soul}
+
+\begin{document}
+\begin{center}
+\LARGE \textbf{Formatives Assessment, Funktionsbegriff}\\[1em]
+\small
+Dieses Assessment hat rein formativen Charakter. Das Resultat nimmt keinen Einfluss auf Ihre Zeugnisnote.
+Das Resultat dient einzig dazu, Lerninhalte zu identifizieren, die noch mehr Ihrer Aufmerksamkeit benötigen.
+\end{center}
+
+\subsubsection*{Hinweis}
+\begin{itemize}
+\item $\mathbb{R}$ ist die Menge der reellen Zahlen
+\item $\mathbb{R}_{+}$ ist die Menge der positiven reellen Zahlen (grösser als null)
+\item $\mathbb{R}_{-}$ ist die Menge der negativen reellen Zahlen (kleiner als null)
+\item $\mathbb{R}_{\geqslant 0}$ ist die Menge der nicht-negativen reellen Zahlen (grösser gleich null)
+\item $\mathbb{R}_{\leqslant 0}$ ist die Menge der nicht-positiven reellen Zahlen (kleiner gleich null)
+\end{itemize}
+\subsection*{Aufgabe 1}
+Was ist eine Funktion?\\
+\begin{solution}
+
+Eine Funktion ist eine Beziehung zwischen zwei Mengen: der Definitionsmenge und der Zielmenge.
+Eine Funktion ordnet jedem Element der Definitionsmenge genau ein Element der Zielmenge zu.
+
+\end{solution}
+\newpage
+\subsection*{Aufgabe 2}
+Es seien folgende Funktionen:
+\begin{IEEEeqnarray*}{rCrClCrCrClCrCrClCrCrClCrCrCl}
+f &:& \mathbb{R}_{-} &\rightarrow & \mathbb{R} 
+& \quad \quad &
+g &:&\mathbb{R} &\rightarrow & \mathbb{R}
+& \quad \quad &
+h &:&\mathbb{R} &\rightarrow & \mathbb{R}
+& \quad \quad &
+\bigstar &:&\mathbb{R}_{+} &\rightarrow & \mathbb{R}_{+}
+& \quad \quad &
+\square &:&\mathbb{R} &\rightarrow & \mathbb{R}_{+}
+\\
+&& x &\mapsto &x^2 
+&&
+&& y &\mapsto &y+1 
+&&
+&& z &\mapsto &0
+&&
+&& t &\mapsto &\frac{1}{t}
+&&
+&& \blacktriangle &\mapsto &\blacktriangle ^2
+\end{IEEEeqnarray*}
+
+\noindent\hl{Leider ist mir hier ein Fehler unterlaufen. Die Funktion $\square$ ist schlecht definiert, da der Funktionswert im Punkt $0$ nicht in der Zielmenge enthalten ist.}
+
+\begin{enumerate}[label=\alph*)]
+\item Was ist der Funktionswert von $\square$ im Punkt $5$?\\
+\begin{solution} Der Funktionswert von $\square$ im Punkt $5$ lässt sich ermitteln, indem man $5$ als Funktionsargument einsetzt: $\square(5) = 5^2 = 25$.
+\end{solution}
+\item Was ist die Definitionsmenge der Funktion $f$?\\
+\begin{solution}
+Die Menge der negativen reellen Zahlen.
+\end{solution}
+\item Was ist die Zielmenge der Funktion $f$?\\
+\begin{solution}
+Die Menge der reellen Zahlen.
+\end{solution}
+\item Klassifizieren Sie jede der Funktionen als \emph{(nicht-)injektiv}, \emph{(nicht-)surjektiv}, \emph{(nicht)-bijektiv}.\\
+
+\begin{tabular}{|c|c|c|c|}
+\toprule
+Funktion & injektiv & surjektiv & bijektiv\\
+& ja / nein & ja / nein & ja / nein\\
+\midrule
+$f$ & ja & nein & nein\\
+\hline
+$g$ & ja & ja & ja\\
+\hline
+$h$ & nein & nein & nein\\
+\hline
+$\bigstar$ & ja & ja & ja\\
+\hline
+$\square$ & \multicolumn{3}{c|}{schlecht definiert}\\
+\bottomrule
+\end{tabular}
+\begin{solution}
+\begin{enumerate}[label=\alph*)]
+\item[$f:$] Die Funktion ist injektiv, da für alle $x_1, x_2 \in \mathbb{R}_{-}$ gilt:
+\begin{IEEEeqnarray*}{rCl}
+f(x_1) = f(x_2) &\iff & x_1^2 = x_2^2\\
+&\iff & x_1 = \pm x_2\\
+&\iff & x_1 = x_2 \text{ (da $x_1$ und $x_2$ beide negativ sind)}
+\end{IEEEeqnarray*}
+Die Funktion ist nicht surjektiv, da kein Element der Definitionsmenge dem Element $0$ der Zielmenge zugeordnet wird:
+\begin{IEEEeqnarray*}{rCl}
+f(x) = 0 & \iff & x^2 = 0\\
+& \iff & x = 0, \text{(aber } 0 \not \in \mathbb{R}_{-}\text{)}
+\end{IEEEeqnarray*}
+Da die Funktion nicht surjektiv ist, kann sie nicht bijektiv sein.
+\item[$g:$] Die Funktion $g$ ist injektiv, denn es gilt für alle $y_1, y_2 \in \mathbb{R}:$
+\begin{IEEEeqnarray*}{rCl}
+g(y_1) = g(y_2) & \iff & y_1 + 1 = y_2 + 1\\
+& \iff & y_1 = y_2.
+\end{IEEEeqnarray*}
+Die Funktion $g$ ist ausserdem surjektiv, denn für jedes Element $z$ der Zielmenge $\mathbb{R}$, gibt es das Element $z-1$ der Definitionsmenge, dessen Funktionswert $z$ ergibt:
+\begin{IEEEeqnarray*}{rCcCl}
+ g(z-1) &=& (z-1) + 1 &=& z, \forall \; z \in \mathbb{R}
+\end{IEEEeqnarray*}
+Da die Funktion injektiv und surjektiv ist, ist sie bijektiv.
+\item[$h$] Die Funktion $h$ ist nicht injektiv, da zum Beispiel $1$ und $2$ in der Definitionsmenge liegen und beide Elemente den gleichen Funktionswert annehmen:
+\begin{IEEEeqnarray*}{rCl}
+h(1) &=& 0\\
+h(2) &=& 0
+\end{IEEEeqnarray*}
+Da $h$ nicht injektiv ist, kann $h$ nicht bijektiv sein.
+
+$h$ ist auch nicht surjektiv, da zum Beispiel $1$ in der Zielmenge liegt, jedoch nie als Funktionswert angenommen wird.
+
+\item[$\bigstar$] Die Funktion $\bigstar$ ist injektiv, denn es gilt für alle $t_1, t_2 \in \mathbb{R}_{+}$:
+\begin{IEEEeqnarray*}{rCl}
+\bigstar(t_1) = \bigstar(t_2) & \iff & \frac{1}{t_1} = \frac{1}{t_2}\\
+& \iff & t_1 = t_2\\
+\end{IEEEeqnarray*}
+
+Die Funktion $\bigstar$ ist ausserdem surjektiv, denn für jedes Element $y$ der Zielmenge, existiert das Element $\frac{1}{y}$ der Definitionsmenge, dessen Funktionswert gleich $y$ ist:
+\begin{IEEEeqnarray*}{rClR}
+\bigstar(\frac{1}{y}) &=& \frac{1}{\frac{1}{y}}&\\
+& = & \frac{y}{y\frac{1}{y}} & \text{ (Zähler und Nenner mit $y$ multiplizieren)}\\
+& = & \frac{y}{\frac{y}{y}}\\
+& = & \frac{y}{1}\\
+&=& y
+\end{IEEEeqnarray*}
+Da die Funktion injektiv und surjektiv ist, ist sie bijektiv.
+\item[$\square$] Die Funktion $\square$ ist leider schlecht definiert. Wenn $\square$ wie folgt definiert wäre:
+\begin{IEEEeqnarray*}{rCrCl}
+\square &:& \mathbb{R} &\rightarrow& \mathbb{R}_{\geqslant 0}\\
+&& \blacktriangle &\mapsto & \blacktriangle^2,
+\end{IEEEeqnarray*}
+dann wäre die Funktion nicht injektiv, denn wir finden $\square(1) = 1 = \square(-1)$.
+Da die Funktion nicht injektiv ist, kann sie nicht bijektiv sein.
+
+Die Funktion wäre dann aber surjektiv, denn für jedes Element $y$ der Zielmenge, existiert das Element $\sqrt{y}$ der Definitionsmenge, dessen Funktionswert gleich $y$ gibt:
+\begin{IEEEeqnarray*}{rCl}
+\square(\sqrt{y}) = (\sqrt{y})^2 = y.
+\end{IEEEeqnarray*}
+\label{lastpage}
+\end{enumerate}
+\end{solution}
+\end{enumerate}
+\end{document}

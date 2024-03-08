@@ -1,0 +1,397 @@
+\documentclass[12pt]{article}
+%\usepackage{pgfkeys}
+\usepackage[widelayout,sf,ngerman, solution, copyright, hyperref, pagecount]{custom23}
+\usepackage{func_helper}
+%\stefancopyright=true
+\newcommand{\docName}{Quadratische Funktionen}
+%\newcommand{\docVersion}{Version 0.0.0}
+\newcommand{\klasse}{Kantonsschule Wettingen, Klasse G1D}
+
+\fancyhead[L]{\klasse}
+\fancyhead[R]{\today}%, \docVersion}
+\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\usepackage{wrapfig}
+
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
+
+\usepackage{setspace}
+\usepackage{subcaption}
+\setboolean{solution}{true}
+
+\usepackage{soul}
+\definecolor{solCol}{rgb}{0, 0, 204}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%% Tikz Grids %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% *|xlabel|ylabel|xmin|xmax|ymin|ymax
+\NewDocumentCommand{\drawcustomgridd}{smmmmmm}{% wlabels, xlabel, ylabel, xmin, xmax, ymin, ymax
+    % Draw axes
+    \draw[->] (#4 , 0) -- (#5 ,0) node[right] {\footnotesize $#2$};
+    \draw[->] (0,#6) -- (0,#7) node[above] {\footnotesize $#3$};
+    \IfBooleanF{#1}
+    {%
+		% Draw grid
+    		\draw[very thin, color=gray!30] (#4 , #6) grid (#5 , #7);
+        		
+    		% Add ticks and labels on x-axis
+	    \foreach \x in {#4 ,...,-1}
+	        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+	    \foreach \x in {1,...,#5}
+	        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+	    
+	    % Add ticks and labels on y-axis
+	    \foreach \y in {#6,...,-1}
+	        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+	    \foreach \y in {1,...,#7}
+	        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    }%
+}
+
+
+
+%%%%%%%%%%
+\begin{document}
+\begin{center}
+\Large \textbf{Formatives Assessment Quadratische Funktionen}\\[1em]
+\footnotesize
+\end{center}
+{\footnotesize
+\subsubsection*{Hinweis}
+Dieses Assessment hat rein formativen Charakter. Das Resultat nimmt keinen Einfluss auf Ihre Zeugnisnote, sondern dient einzig dazu, Lerninhalte zu identifizieren, die noch mehr Ihrer Aufmerksamkeit benötigen.
+\begin{itemize}
+\item $\mathbb{R}$ ist die Menge der reellen Zahlen
+\item $\mathbb{R} \setminus \{0\}$ ist die Menge der reellen Zahlen ohne die Zahl $0$.
+\item Das Symbol $\forall$ bedeutet \emph{``für alle''}, oder \emph{``für jedes''}. Der Ausdruck $\forall x \in A$ bedeutet: \emph{``Für jedes Element $x$ der Menge $A$''}.
+\end{itemize}
+}
+\subsection*{Aufgabe 1}
+
+\realFun{f}{t}{s(t+3)^2 - 5}
+Es sei $s \in \mathbb{R} \setminus \{0\}$ ein reeller Parameter und $f$ definiert wie folgt. \printFunDef{f}
+\begin{enumerate}[label=\alph*)]
+\item Vervollständigen Sie den Lückentext mit den Symbolen $<,>, \leqslant, \geqslant,0,2$ und den Worten \texttt{Maximum}, \texttt{Minimum}, \texttt{oben} und \texttt{unten}.
+\begin{quote}
+Wenn $s \; {\color{solCol}>} \; 0$ gilt, dann ist der Funktionsgraph von $f$ nach {\color{solCol}{ \texttt{oben}}} geöffnet. In diesem Fall gilt $f(t)\; {\color{solCol}\geqslant} \; -5, \; \forall t \in \Reals$ und die Funktion $f$ weist ein {\color{solCol}{ \texttt{Minimum}}} auf. Die Funktion hat in diesem Fall genau {\color{solCol}2} Nullstellen.
+
+
+Wenn $s \;{\color{solCol}<} \; 0$ gilt, dann ist der Funktionsgraph von $f$ nach {\color{solCol}{ \texttt{unten}}} geöffnet. In diesem Fall gilt $f(t)\; {\color{solCol}\leqslant} \; -5, \; \forall t \in \Reals$ und die Funktion $f$ weist ein {\color{solCol}{ \texttt{Maximum}}} auf. Die Funktion hat in diesem Fall genau {\color{solCol}0} Nullstellen.
+\end{quote}
+\item Bestimmen Sie den Ordinatenabschnitt von $f$. {\color{solCol}Der Ordinatenabschnitt entspricht dem Funktionswert mit Funktionsargument Null: $f(0) = s(0+3)^2 - 5 = 9s-5$}
+%\item Welcher Funktionsterm entsteht, wenn Sie den Funktionsgraph von $f$ um $2$ Einheiten nach oben und um $3$ Einheiten nach rechts verschieben? {\color{solCol} Der Scheitelpunkt liegt in $(-3, -5)$ wenn man die Funktion um $3$ Einheiten nach rechts verschiebt und $2$ Einheiten nach oben, liegt der Scheitelpunkt danach in $(-3+3, -5+2) = (0,-3)$.
+%Der gesuchte Funktionsterm lautet deshalb $st^2 - 3$}
+\end{enumerate}
+
+
+%\subsection*{Aufgabe 2}
+%\realFun{g}{t}{4(t-3)^2 + d_g}
+%Es seien $d_g \in \mathbb{R}$ ein reeller Parameter und die Funktion $g$ definiert wie folgt. \printFunDef{g}
+%Bestimmen Sie die Menge der Elemente, für welche $g$ genau
+%\begin{enumerate}[label=\alph*)]
+%\item keine Nullstelle hat;
+%\item eine Nullstelle hat;
+%\item zwei Nullstellen hat.
+%\end{enumerate}
+\subsection*{Aufgabe 2}
+\realFun{h}{x}{x^2 - 2x + 1}% nutzen, um binomische Formel zu repetieren.
+\realFun{u}{x}{-3x^2 - 2x + 1}
+Es seien $u$ und $h$ zwei Funktionen wie folgt definiert
+\begin{IEEEeqnarray*}{rCrClXrCrCl}
+\getRelation{h} & \qquad &\getRelation{u}\\
+\getMap{h} & \qquad & \getMap{u}.
+\end{IEEEeqnarray*}
+
+\begin{enumerate}[label=\alph*)]
+\item Bestimmen Sie den Ordinatenabschnitt von $h$ und $u$
+\begin{solution}
+Der Ordinatenabschnitt ist für beide Funktionen gleich $1$, denn $h(0) = u(0) = 1$.
+\end{solution}
+\item Bestimmen Sie den Scheitelpunkt von $h$ und $u$
+\begin{solution}
+Der Funktionsterm vom $h$ entspricht einem bekannten binomischen Term. Es gilt \begin{IEEEeqnarray*}{rCl}
+h(x) &=& x^2 - 2x + 1\\
+&=& (x-1)^2.
+\end{IEEEeqnarray*}
+Somit wissen wir, dass der Scheitelpunkt von $h$ in $(1,0)$ liegen muss.
+Für $u$ können wir die im Unterricht gesehene Formel anwenden. Es gilt nämlich, dass eine quadratische Funktion der Form $ax^2 + bx + c$ ihren Scheitelpunkt immer in $\left( -\frac{b}{2a}, c-\frac{b^2}{4a}\right)$ hat. In diesem Fall liegt der Scheitelpunkt also in $\left( -\frac{-2}{2\cdot(-3)}, 1-\frac{(-2)^2}{4\cdot (-3)}\right) =\left( -\frac{1}{3}, \frac{4}{3}\right).$
+
+Alternativ kann man die Scheitelpunktform auch durch quadratische Ergänzung finden:
+\begin{IEEEeqnarray*}{rCl}
+u(x) &=& -3x^2 -2x + 1\\
+&=& -3 \left(x^2 - 2\frac{1}{-3}x\right) + 1\\
+&=& -3 \left(\left(x^2 + 2\frac{1}{3}x + \left(\frac{1}{3}\right)^2\right) - \left(\frac{1}{3}\right)^2\right) + 1\\
+&=& -3\left(x+\frac{1}{3}\right)^2 + \frac{1}{3} + 1\\
+&=& -3\left(x+\frac{1}{3}\right)^2 + \frac{4}{3},\\
+\end{IEEEeqnarray*}
+Es folgt, dass der Scheitelpunkt von $u$ in $\left(-\frac{1}{3}, \frac{4}{3}\right)$ liegen muss.
+\end{solution}
+\end{enumerate}
+
+\subsection*{Aufgabe 3}
+\realFun{v}{x}{}
+Es sei $\getRelation*{v}$ eine quadratische Funktion mit Nullstellen in $-4$ und $-8$. Der Funktionswert von $v$ im Scheitelpunkt ist $2$. Bestimmen Sie den Funktionsterm.
+
+\begin{solution}
+Wir wissen aus dem Unterricht, dass der Graph einer quadratischen Funktion eine vertikale Symmetrieachse aufweist. Laut der Aufgabenstellung liegen die Punkte $(-4, 0)$ und $(-8,0)$ beide auf dem Funktionsgraphen. Da die Punkte auf der gleichen Höhe liegen, müssen sie den gleichen Abstand zur Symmetrieachse haben. Das heisst, die Symmetrieachse muss genau zwischen den beiden Punkten verlaufen. Wir finden die x-Koordinate der Symmetrie Achse: $-4 + \frac{-8-(-4)}{2} = -4 + \frac{-4}{2} = -6$. Da die Symmetrieachse durch den Scheitelpunkt verläuft, muss die $x-$Koordinate des Scheitelpunktes $-6$ betragen. Der Funktionswert im Scheitelpunkt ist in der Aufgabenstellung gegeben und wir wissen deshalb, dass der Scheitelpunkt in $(-6, 2)$ liegt. Das heisst, die Funktion nimmt die Form an: \begin{IEEEeqnarray*}{rCl}
+v(x) &=& a(x-(-6))^2 + 2\\
+&=& a(x+6)^2 + 2\\
+\end{IEEEeqnarray*}
+Jetzt können wir noch nach $a$ auflösen. Wir wissen, dass $v(-4) = 0$ gilt:
+ \begin{IEEEeqnarray*}{RrCl}
+& v(-4) &=& 0\\
+\iff & a((-4)+6)^2 + 2 &=& 0 \\
+\iff & a 2^2 + 2 &=& 0\\
+\iff & 4a &=& -2\\
+\iff & a &=& -\frac{1}{2}\\
+\end{IEEEeqnarray*}
+und wir finden den Funktionsterm $v(x) = -\frac{1}{2}(x+6)^2 + 2$
+\begin{center}
+\resizebox{0.6\textwidth}{!}{
+\begin{tikzpicture}[>=Stealth, scale=0.5]
+    % draw grid
+    \drawcustomgridd{x}{v(x)}{-10}{4}{-8}{4};
+    \node[circle,draw,inner sep=2pt, red!80!black, fill] (n1) at (-4,0) {};
+    \node[circle,draw,inner sep=2pt, red!80!black, fill] (n2) at (-8,0) {};
+    \draw[thick, orange!60!white, dash dot] (-6,-8) -- (-6,4) node[orange!60!white, above] {\footnotesize Symmetrieachse};
+    \draw[thick, yellow!60!black, dashed] (-10,2) -- (4,2) node[yellow!60!black, above] {\footnotesize Höhe Scheitelpunkt};
+    \node[circle, draw, inner sep=2pt, blue!80!black, fill] (sp) at (-6,2) {};
+    \node[blue!80!black, above right] at (sp) {\footnotesize Scheitelpunkt};
+\end{tikzpicture}}
+\end{center}
+\end{solution}
+
+\newpage
+\appendix
+\section{Kommentar und Ausführungen}
+\subsection{Maximum und Minimum einer Funktion}
+Es seien $A \subset \Reals$ und $B \subset \Reals$ zwei Mengen reeller Zahlen. und $f : A \rightarrow B$ eine Funktion mit Definitionsmenge $A$ und Zielmenge $B$.
+\paragraph{Maximum}
+Man sagt, dass die Funktion $f$ ein \textbf{Maximum} $M \in B$ aufweist, wenn folgende \textbf{zwei Bedingungen} erfüllt sind:
+\begin{itemize}
+\item \textbf{Der Funktionswert ist nach oben begrenzt und ist immer kleiner oder gleich gross wie $M$.} Mathematisch lässt sich das wie folgt ausdrücken: $${\color{blue!80!black}f(x) \leqslant M}, \; {\color{red!80!black}\forall x \in A}.$$
+{\footnotesize
+Obige Aussage lässt sich so in Worte fassen: \emph{{\color{blue!80!black}Der Funtionswert $f$ in $x$ ist immer kleiner oder gleich gross wie $M$} {\color{red!80!black}und zwar für alle Elemente $x$ aus $A$}.}}
+%Äquivalent ist die etwas kompaktere Aussage, dass der Funktionswert von $f$ niemals grösser als $M$ ist.
+\item \textbf{Es existiert ein Element in der Definitionsmenge, dem der Wert $M$ zugeordnet wird.} Mathematisch kompakt wird das so geschrieben: $${\color{red!80!black}\exists x_M \in A}, \; \text{s.d.} \; {\color{blue!80!black}f(x_M) = M}.$$
+{\footnotesize Diese Aussage lässt sich so in Worte fassen: \emph{{\color{red!80!black}Es existiert ein Element $x_M$ in der Menge $A$}, so dass {\color{blue!80!black}der Funktionswert in $x_M$ gleich $M$ ist}}}.
+\end{itemize}
+\paragraph{Minimum}
+Man sagt, dass die Funktion $f$ ein \textbf{Minimum} $m \in B$ aufweist, wenn folgende \textbf{zwei Bedingungen} erfüllt sind:
+\begin{itemize}
+\item \textbf{Der Funktionswert ist nach unten begrenzt und ist immer grösser oder gleich gross wie $m$.} Mathematisch lässt sich das wie folgt ausdrücken: $${\color{blue!80!black}f(x) \geqslant m}, \; {\color{red!80!black}\forall x \in A}.$$
+{\footnotesize
+Obige Aussage lässt sich so in Worte fassen: \emph{{\color{blue!80!black}Der Funtionswert $f$ in $x$ ist immer grösser oder gleich gross wie $m$} {\color{red!80!black}und zwar für alle Elemente $x$ aus $A$}.}}
+%Äquivalent ist die etwas kompaktere Aussage, dass der Funktionswert von $f$ niemals grösser als $M$ ist.
+\item \textbf{Es existiert ein Element in der Definitionsmenge, dem der Wert $m$ zugeordnet wird.} Mathematisch kompakt wird das so geschrieben: $${\color{red!80!black}\exists x_m \in A}, \; \text{s.d.} \; {\color{blue!80!black}f(x_m) = m}.$$
+{\footnotesize Diese Aussage lässt sich so in Worte fassen: \emph{{\color{red!80!black}Es existiert ein Element $x_m$ in der Menge $A$}, so dass {\color{blue!80!black}der Funktionswert $f$ in $x_m$ gleich $m$ ist}}}.
+\end{itemize}
+\subsubsection{Im Kontext der Aufgabe 1}
+Die Funktion aus Aufgabe~1 lautet \printFunDef{f}
+Von einem intuitiven Gesichtspunkt ist Ihnen bereits bekannt, dass der Funktionsgraph von $f$ nach unten geöffnet ist, wenn $s$ negativ ist und dass der Graph nach oben geöffnet ist, wenn $s$ positiv ist. Entsprechend können die Werte oberhalb, respektive unterhalb des Scheitelpunktes niemals von der Funktion erreicht werden. Der Funktionswert $-5$ im Scheitelpunkt entspricht deshalb dem Maximum, wenn $s$ negativ ist und dem Minimum, wenn $s$ positiv ist.
+\begin{center}
+\begin{minipage}{0.45\textwidth}%
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[>=Stealth, scale=0.5]
+    \drawcustomgridd*{t}{f(t)}{-5}{5}{-5}{5};
+    %\node[circle, draw, inner sep=2pt, blue!80!black, fill] (sp) at (2,2) {};
+    %\node[blue!80!black, above right] at (sp) {\footnotesize Scheitelpunkt};
+    \clip (-5, -5) rectangle (5,5);
+    \draw[thick, smooth, black] plot[domain=-5:5, samples=100] (\x, {-(\x+(3/5))^2 -1});
+    \node at (-3, -3) {\footnotesize $s < 0$};
+    \draw[thick, yellow!60!black, dashed] (-5,-1) -- (5,-1) node[yellow!60!black, above left] {\footnotesize Maximum};
+\end{tikzpicture}}
+\end{minipage}
+\hfill
+\vrule
+\hfill
+\begin{minipage}{0.45\textwidth}%
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[>=Stealth, scale=0.5]
+    \drawcustomgridd*{t}{f(t)}{-5}{5}{-5}{5};
+    %\node[circle, draw, inner sep=2pt, blue!80!black, fill] (sp) at (2,2) {};
+    %\node[blue!80!black, above right] at (sp) {\footnotesize Scheitelpunkt};
+    \clip (-5, -5) rectangle (5,5);
+    \draw[thick, smooth, black] plot[domain=-5:5, samples=100] (\x, {(\x+(3/5))^2 -1});
+    \node at (2.5, 2) {\footnotesize $s > 0$};
+    \draw[thick, yellow!60!black, dashed] (-5,-1) -- (5,-1) node[yellow!60!black, above left] {\footnotesize Minimum};
+\end{tikzpicture}}
+\end{minipage}
+\end{center}
+
+Wir können das auch analytisch ergründen. Da eine reelle Zahl zum Quadrat immer positiv oder null ist, wissen wir, dass $(t+3)^2$ immer nicht-negativ ist (also immer grösser oder gleich null ist). Wir wissen deshalb, dass der Term $s(t+3)^2$:
+\begin{itemize}
+\item kleiner oder gleich null ist, wenn $s$ negativ ist;
+\item grösser oder gleich null ist, wenn $s$ positiv ist.
+\end{itemize}
+Mathematisch können wir die zugehörigen Ungleichungen aufschreiben:\\
+\begin{center}
+\resizebox{0.4\textwidth}{!}{
+\begin{minipage}{0.45\textwidth}
+\paragraph{$s<0:$}
+\begin{IEEEeqnarray*}{RrCl}
+&(t+3)^2 &\geqslant & 0\\%, & \forall \; t \in \Reals\\
+\overset{s<0}{\iff} &s(t+3)^2 &\leqslant & s \cdot 0\\%, & \forall \; t \in \Reals\\
+\iff &s(t+3)^2 &\leqslant & 0\\%, & \forall \; t \in \Reals\\
+\iff &s(t+3)^2 - 5 & \leqslant & -5\\%, & \forall \; t \in \Reals\\
+\iff & f(t) & \leqslant & -5%\\%, & \forall \; t \in \Reals.
+\end{IEEEeqnarray*}
+\end{minipage}}
+%\begin{minipage}{0.1\textwidth}
+\hfill
+\vrule
+\hfill
+%\end{minipage}
+\resizebox{0.4\textwidth}{!}{
+\begin{minipage}{0.45\textwidth}
+\paragraph{$s>0:$}
+\begin{IEEEeqnarray*}{RrCl}
+&(t+3)^2 &\geqslant & 0\\%, & \forall \; t \in \Reals\\
+\overset{s>0}{\iff} &s(t+3)^2 &\geqslant & s \cdot 0\\%, & \forall \; t \in \Reals\\
+\iff &s(t+3)^2 &\geqslant & 0\\%, & \forall \; t \in \Reals\\
+\iff &s(t+3)^2 - 5 & \geqslant & -5\\%, & \forall \; t \in \Reals\\
+\iff & f(t) & \geqslant & -5%\\%, & \forall \; t \in \Reals.
+\end{IEEEeqnarray*}
+\end{minipage}}
+\end{center}
+
+\begin{center}
+%\resizebox{0.4\textwidth}{!}{
+\begin{minipage}{0.45\textwidth}
+\paragraph{$s<0:$}
+Wir erkennen an den Ungleichungen, dass der Funktionswert $f(t)$ immer kleiner oder gleich $-5$ ist, wenn $s$ negativ ist. Somit ist die erste Bedingung für ein \textbf{Maximum} von $-5$ erfüllt.
+\end{minipage}%}
+%\begin{minipage}{0.1\textwidth}
+\hfill
+\vrule
+\hfill
+%\end{minipage}
+%\resizebox{0.4\textwidth}{!}{
+\begin{minipage}{0.45\textwidth}
+\paragraph{$s>0:$}
+Wir erkennen an den Ungleichungen, dass der Funktionswert $f(t)$ immer grösser oder gleich $-5$ ist, wenn $s$ positiv ist. Somit ist die erste Bedingung für ein \textbf{Minimum} von $-5$ erfüllt.
+\end{minipage}%}
+\end{center}
+Wir sehen, dass unabhängig vom Vorzeichen von $s$ die Gleichung $f(-3)=-5$ gilt, denn wir haben: \begin{IEEEeqnarray*}{rCl} f(-3) &=& s(-3+3)^2 - 5\\
+&=& s\cdot 0^2 - 5\\
+&=& -5. \end{IEEEeqnarray*}
+Somit ist in beiden Fällen die zweite Bedingung erfüllt und wir schlussfolgern, dass $f$ ein \textbf{Maximum} von $-5$ aufweist, wenn $s$ \textbf{negativ} ist und dass $f$ ein \textbf{Minimum} von $-5$ aufweist, wenn $s$ \textbf{positiv} ist.
+
+\subsubsection{Überprüfung}
+Sie können Ihr Verständnis mit folgender Übung weiter trainieren:
+\begin{exercise}
+\begin{enumerate}[label=\alph*)]
+\item Welche Bedingungen müssen erfüllt sein, damit eine reelle Funktion $f: \mathbb{R} \rightarrow \Reals$ ein Minimum, respektive ein Maximum aufweist?
+\item Wann erreicht eine quadratische Funktion ein Maximum im Scheitelpunkt? Wann erreicht sie ein Minimum im Scheitelpunkt? Weshalb? Welche Rolle spielen die Parameter $a$ und $e$ der Scheitelpunktform dabei?
+\end{enumerate}
+
+\end{exercise}
+\newpage
+\subsection{Über parametrisierte Koeffizienten einer Quadratischen Funktion}
+Sie sind bereits mit der Definition für die allgemeine und die Scheitelpunktform der quadratischen Funktionen vertraut.
+\begin{whiteboxdef}
+Es seien $A$ und $B$ zwei Teilmengen der reellen Zahlen.
+Eine Funktion $f : A \rightarrow B$ heisst \textbf{quadratische Funktion}, wenn drei reelle Konstanten $a,b,c \in \mathbb{R}$ existieren, so dass $a \neq 0$ und so dass gilt:
+\begin{IEEEeqnarray}{rClCr}\label{eq:allgemeine_form_quad_func}
+f(x) &=& ax^2 + bx + c, &\quad &\forall \; x \in A.
+\end{IEEEeqnarray}
+Diese Schreibweise für quadratische Funktionen heisst \textbf{allgemeine Form}.
+\end{whiteboxdef}
+
+Die Koeffizienten $a,b,c$ sind \textbf{Parameter} in den reellen Zahlen. Parameter sind Platzhalter und stehen stellvertretend für Elemente von spezifischen Mengen. Im obigen Fall dürfen $b$ und $c$ mit beliebigen reellen Zahlen ersetzt werden und die Funktion würde weiterhin als quadratische Funktion gelten. Bei $a$ muss man allerdings vorsichtig sein, denn $a$ steht nur stellvertretend für Elemente der reellen Zahlen ohne die Null!
+
+Das heisst, eine Funktion der Form $0\cdot x^2 + bx + c$ erfüllt obige Definition nicht und gilt nicht als quadratische Funktion. In diesem Fall wäre $f(x)$ nämlich gleich $bx+c,$ was entweder eine lineare Funktion ist (wenn $b\neq 0$) oder einer konstanten Funktion entspricht (wenn $b=0$).
+
+Man nennt $a$ übrigens auch den quadratischen Koeffizienten, $b$ den linearen Koeffizienten und $c$ den konstanten Koeffizienten.
+
+\subsubsection{Im Kontext der Aufgabe 1}
+Betrachten Sie nochmals die Definition für $f$ aus Aufgabe 1.
+\begin{quotation}
+Es sei $s \in \mathbb{R} \setminus \{0\}$ ein reeller Parameter und $f$ definiert wie folgt \printFunDef{f}
+\end{quotation}
+
+In diesem Kontext ist es wichtig zu beachten, dass die folgenden zwei Aussagen \textbf{grundsätzlich falsch} sind:
+\begin{itemize}
+\item Wenn $s \geqslant 0$ gilt, dann ist der Funktionsgraph von $f$ nach \texttt{oben} geöffnet.
+\item Wenn $s \leqslant 0$ gilt, dann ist der Funktionsgraph von $f$ nach \texttt{unten} geöffnet.
+\end{itemize}
+In beiden Fällen stimmt die Aussage zwar, wenn die Ungleichung zutrifft, also wenn $s\neq 0$ gilt. Allerdings gilt es den Fall $s=0$ zu beachten!
+Dann lautet der Funktionsterm nämlich $f(t) = 0\cdot (t+3)^2 -5 = -5$ und die Funktion entspricht der konstanten Funktion $f(t)=-5, \forall t \in \Reals$.
+
+Der Graphen dieser konstanten Funktion entspricht einer horizontalen Geraden auf Höhe $-5$. In diesem Kontext ist dann unklar, was mit einer Öffnung des Funktionsgraphen nach oben oder unten gemeint ist.
+
+
+Häufig wurde dann auch $f(t) < -5, \; \forall t \in \Reals$ und $f(t) > -5, \; \forall t \in \Reals$ geschrieben. Das ist dann leider auch nicht korrekt, da der Funktionswert $-5$ dem Funktionsargument $-3$ zugeordnet wird: $f(-3) = s\cdot (-3+3)^2 - 5 = -5$.
+
+%und $s \leqslant 0$ grundsätzlich falsch ist, aber nicht ausreichend. Wenn $s=0$ ist, dann entspricht die Funktion $f$ nämlich der konstanten Funktion $f(x)=-5, \forall x \in \Reals$. In diesem Fall entspricht der Funktionsgraph \textbf{nicht} einer 
+%Bedenken Sie, dass es in diesem Kontext wenig Sinn ergibt, das $\geqslant$ oder $\leqslant$ Zeichen dem Parameter 
+%Auf die Aufgabe 1 bezogen ergibt sich aus dieser Definition 
+%\begin{remark}
+%Man sagt übrigens auch, dass $f$ ein Maximum von $-5$ \textbf{in} $-3$ erreicht, wenn $s$ kleiner als Null ist. Respektive, dass $f$ ein Minimum von $-5$ \textbf{in} $-3$ erreicht, wenn $s$ grösser als Null ist.\\
+%Die Funktion erreicht ein Maximum von \texttt{<Maximalwert>} \textbf{in} \texttt{<Element der Definitionsmenge, dem der Maximalwert zugewiesen wird>}.
+%%Also: Die Funktion erreicht ein Maximum / Minimum von \texttt{Maximalwert / Minimalwert} \textbf{in} \texttt{Element der Definitionsmenge, dem der Maximal-/ respektive Minimalwert zugewiesen wird}.
+%\end{remark}
+%Wenn der Parameter $d_g$ \rule{2cm}{0.5pt} ist, hat $g$ genau \rule{2cm}{0.5pt} Nullstellen. Wenn der Parameter $d_g$  \rule{2cm}{0.5pt} ist, hat $g$ genau \rule{2cm}{0.5pt} Nullstellen. Und wenn $d_g$  \rule{2cm}{0.5pt} ist, dann hat $g$ \rule{2cm}{0.5pt} Nullstellen.
+%\begin{enumerate}[label=\alph*)]
+%\item 
+%\item Welche Werte kann Parameter $d_g$ annehmen, damit die Funktion $g$: \begin{enumerate}
+%\item keine Nullstelle hat?
+%\item eine Nullstelle hat?
+%\item zwei Nullstellen hat?
+%\end{enumerate} 
+%\end{enumerate}
+
+
+
+%\subsection*{Aufgabe 3}
+%\realFun{f}{t}{at^2 + bt + c}
+%Es sei die Funktion $f$ definiert wie folgt.
+%\printFunDef{f}
+%\begin{enumerate}
+%\item Der Funktionsgraph
+%\end{enumerate}
+%
+%Es seien $a,b,c,d$ und $e$ reelle Zahlen, wobei $a\neq 0$ gilt und die Funktionen $f$ und $g$ definiert sind als
+%\begin{IEEEeqnarray*}{rCrClXrCrCl}
+%\getRelation{f} & \qquad &\getRelation{g}\\
+%\getMap{f} & \qquad & \getMap{g}.
+%\end{IEEEeqnarray*}
+%
+%\begin{enumerate}[label=\alph*)]
+%\item Bestimmen Sie den Ordinatenabschnitt von $f$ und $g$.\\[4cm]
+%\item Bestimmen Sie den Scheitelpunkt von $f$ und $g$.\\[4cm]
+%\item Bestimmen Sie für jede der folgenden Aussagen, ob diese richtig oder falsch sind: \begin{enumerate}[label=\roman*)]
+%\item Es gilt $f(-\frac{b}{2} + t) = f(-\frac{b}{2}-t),$ für alle $t\in \Reals$.
+%\item Es gilt $g(t+d) = g(t-d),$ für alle $t\in \Reals$.
+%\item Die Funktion $f$ hat ein Minimum genau dann, wenn $a$ negativ ist.
+%\item Die Funktion $g$ ist offensichtlich immer positiv, wenn $a$ positiv ist.
+%\end{enumerate}
+%\item Korrigieren Sie folgende Aussage: \verb=Der Scheitelpunkt entspricht dem Punkt, in dem die Funktion ihr Maximum erreicht.=
+%\end{enumerate}
+%
+%
+%Vervollständigen Sie folgenden Text:
+%{
+%\onehalfspacing
+%Die Funktion $g$ ist eine \rule{2cm}{0.5pt} Funktion mit Scheitelpunkt in \rule{2cm}{0.5pt}. Der Scheitelpunkt entspricht dem Punkt, in dem die Funktion ihr \rule{2cm}{0.5pt} erreicht, wenn $a$ positiv ist. Wenn $a$ negativ ist, erreicht die Funktion im Scheitelpunkt ihr \rule{2cm}{0.5pt}.
+%
+%Der Funktionswert im Scheitelpunkt entspricht dem Extremwert der Funktion. 
+%
+%
+%Die Funktion $g$ ist symmetrisch um 
+%Eine quadratische Funktion 
+%}
+%- Bestimmen des Scheitelpunktes:
+%   - wenn in scheitelpunktform
+%   - wenn in der allgemeinen Form
+%   - anhand von 3 
+%- Bestimmen der Extremwerte (min / max)
+%- Bestimmen der Symmetrieachse
+%
+%Bestimmen Sie für die folgenden Funktionen den Scheitelpunkt
+%sowie die Extremwerte
+% minimum, maximum bestimmen
+\label{lastpage}
+
+\end{document}
