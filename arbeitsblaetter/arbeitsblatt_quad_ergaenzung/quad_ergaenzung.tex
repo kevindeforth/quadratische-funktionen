@@ -1,0 +1,186 @@
+\documentclass{article}
+\usepackage[widelayout,sf,ngerman, solution, hyperref]{custom23}
+\usepackage{func_helper}
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+%\usepackage[german]{babel}
+%\usepackage{helvet}
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+%\newcommand{\docName}{Quadratische Funktionen}
+%\newcommand{\docVersion}{}%Version 1.1.0}
+%\newcommand{\klasse}{Kantonsschule Wettingen, Klasse G1D}
+
+%\fancyhead[L]{\klasse}
+%\fancyhead[R]{\today, \docVersion}
+%\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+% Useful packages
+%\usepackage{amsmath}
+%\usepackage{graphicx}
+%\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+%\usepackage{float}
+%\usepackage{wrapfig}
+%\usepackage{array}
+%\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+%\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+%\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+%\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+%\usepackage[shortlabels]{enumitem}
+
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{framed}
+\title{Quadratische Ergänzung}
+\date{\vspace{-7ex}}
+\begin{document}
+%\fontfamily{phv}\selectfont
+
+\maketitle
+\realFun{f}{x}{5x^2 -10x + 6}
+Alice und Bob wurden gefragt, den Scheitelpunkt für folgende Funktion zu identifizieren und ihren Lösungsweg zu kommentieren.
+\printFunDef{f}
+\begin{minipage}[t]{.45\textwidth}
+\centering
+\noindent\fbox{%
+    \parbox{0.9\textwidth}{%
+        \centering
+        \textbf{L\"osungsweg Alice}
+    }%
+}
+
+\begin{minipage}[t]{.3\textwidth}
+\vspace{0.5cm}
+\small
+\raggedright
+%\vspace{1.5cm}
+\emph{Als erstes habe ich den Koeffizienten vom $x^2$ ausgeklammert.}\\[0.5cm]
+
+\emph{Dann habe ich zum Quadrat ergänzt}\\[0.5cm]
+
+
+\emph{und den binomischen Term faktorisiert.}\\[0.5cm]
+
+\emph{Schliesslich noch die Klammer aufgelöst\ldots }\\[0.5cm]
+\emph{\ldots und den Restbetrag schöngeschrieben.}\\[0.5cm]
+
+
+\emph{Zum Schluss habe ich den Scheitelpunkt abgelesen.}%\vspace{0.75cm}%\hfill\\
+
+
+%\emph{Und diese nach $y$ aufgel\"ost.}
+
+\end{minipage}%
+\begin{minipage}[t]{.1\textwidth}
+\hfill\\
+\end{minipage}%
+\begin{minipage}[t]{.6\textwidth}
+\vspace{0.5cm}
+\begin{IEEEeqnarray*}{Rl}
+& 5x^2 - 10x +6 \\
+=& 5\left(x^2 - 2x\right) + 6\\[1cm]
+=& 5\left(\left(x^2 - 2x + 1\right) -1\right)+ 6\\[1.5cm]
+=& 5\left( (x-1)^2 - 1\right) + 6\\[2cm]
+=& 5 (x-1)^2  -5  + 6\\[1.5cm]
+=& 5(x-1)^2 + 1\\%[1cm]
+\end{IEEEeqnarray*}
+\begin{center}
+Der Scheitelpunkt liegt in $(1,1)$.
+\end{center}
+\end{minipage}
+\end{minipage}%
+\hfill\vline\hfill%
+\begin{minipage}[t]{.45\textwidth}
+\centering
+\noindent\fbox{%
+    \parbox{0.9\textwidth}{%
+        \centering
+        \textbf{Lösungsweg Bob}
+    }%
+}
+
+\begin{minipage}[t]{.1\textwidth}
+\hfill\\
+\end{minipage}%
+\begin{minipage}[t]{.6\textwidth}
+\vspace{0.5cm}
+\begin{IEEEeqnarray*}{RCl}
+&&5x^2 - 10x +6\\
+\Rightarrow & & a=5, \; b=-10,\; c=6
+\end{IEEEeqnarray*}
+\vspace{0.15cm}
+\begin{IEEEeqnarray*}{RrCl}
+%&&& 5x^2 - 10x +6 \\
+%\Rightarrow & a=5 &b=-10&, c=6\\
+& d &=& -\frac{b}{2a}  \\
+\Rightarrow & d&=& -\frac{-10}{2\cdot 5}\\
+& &=& -\frac{-10}{10}\\
+& &=& -(-1)\\
+& &=& 1\\
+\end{IEEEeqnarray*}
+\vspace{0.1cm}
+\begin{IEEEeqnarray*}{RrCl}
+& e &=& c-\frac{b^2}{4a}\\
+\Rightarrow &e&=& 6 - \frac{(-10)^2}{4 \cdot 5}\\
+& &=& 6 - \frac{100}{20}\\
+& &=& 6-5 \\
+& &=& 1\\
+\end{IEEEeqnarray*}
+\vspace{0.2cm}\\
+Das heisst, der Scheitelpunkt liegt in $(1,1)$.
+\end{minipage}%
+\begin{minipage}[t]{.3\textwidth}
+\small
+\raggedleft
+\vspace{0.5cm}
+\emph{Als erstes habe ich die Parameter $a,b,c$ der AF identifiziert.}\\[0.5cm]
+
+% $a,b,c$ Formel für die x-Koordinate des Scheitelpunktes hingeschrieben, eingesetzt und aufgelöst,}\vspace{0.5cm}
+
+\emph{Dann habe ich die Formel für die $x$-Koordinate des Scheitelpunktes hingeschrieben, die Parameter eingesetzt und aufgelöst.}\\[0.5cm]
+\emph{Anschliessend habe ich die Formel für die $y$-Koordinate des Scheitelpunktes hingeschrieben, die Parameter eingesetzt und aufgelöst.}\vspace{0.5cm}
+
+
+\emph{und zum Schluss mein Ergebnis schön hingeschrieben}%\vspace{0.75cm}%\hfill\\
+
+
+%\emph{Und diese nach $y$ aufgel\"ost.}
+
+\end{minipage}%
+\end{minipage}%
+%\vspace{1cm}
+\realFun{g}{x}{-6x^2 -10x + 6}
+\subsection*{Aufgabe 1}
+\begin{enumerate}[label=\alph*)]
+\item Lesen Sie Alices \& Bobs Lösungsweg aufmerksam durch. Was meint Bob mit \emph{AF}? Was meint Alice mit \emph{zum Quadrat ergänzt}?
+\item Geben Sie beiden Lösungswegen einen Namen.
+\end{enumerate}
+\subsection*{Aufgabe 2}
+Nutzen Sie Alices Lösungsweg um den Scheitelpunkt der Funktion $\printFunDef*{g}$ zu bestimmen. Kommentieren Sie Ihren Lösungsweg, ähnlich wie Alice.
+
+%\newpage
+%\emph{\small Denken Sie zuerst alleine \"uber die Fragen nach und schreiben Sie Ihre Antworten auf. Schreiben Sie ebenfalls auf, falls Sie etwas nicht verstehen. Diskutieren Sie Ihre Antworten danach mit einer weiteren Person.}\\
+%\begin{minipage}[t]{.45\textwidth}
+%    \textbf{Alleine}\hfill\\
+%    \vspace{8cm} \end{minipage}%
+%	\hfill\vline\hfill%
+%\begin{minipage}[t]{.45\textwidth}\textbf{Zweiergruppe}\hfill\\ \end{minipage}\vspace{0.1cm}\\
+%
+%
+%\emph{\small Fassen Sie hier die Antworten zusammen, auf die sich die Klasse w\"ahrend der Besprechung im Plenum geeinigt hat. Inwiefern unterscheiden sie sich von Ihren urspr\"unglichen Antworten?}
+%
+%\noindent\begin{minipage}[t]{\textwidth}
+%\textbf{Antwort Klasse}\hfill\\
+%\vspace{8cm}
+%\end{minipage}
+%
+%
+%\emph{\small Nach der Diskussion, schreiben Sie hier die Kernidee dieser Aufgabe nieder.}\\
+%\noindent\begin{minipage}[t]{\textwidth}
+%\textbf{Kernidee}\hfill\\
+% man darf Gleichungen addieren, weil man auf beiden Seiten des Gleichheitszeichens das Gleiche hinzuaddiert. Es schaut nur anders aus.
+% challenges: 
+%\end{minipage}
+
+\end{document}

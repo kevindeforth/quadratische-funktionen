@@ -1,0 +1,120 @@
+\RequirePackage{amsmath,amssymb} % for mathbb and IEEEeqnarray
+\RequirePackage{expl3}
+\RequirePackage{xparse} % Explicitly load xparse
+\RequirePackage{xcolor}
+\RequirePackage{IEEEtrantools} % for IEEEeqnarray
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Functions %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ExplSyntaxOn
+
+% Define a prop for storing functions
+\prop_new:N \g_myfunc_func_prop
+
+% Helper Function to check if a function is defined.
+\NewDocumentCommand{\checkFunDefined}{mm}{
+    \prop_get:cnNTF { l_myfunc_function_#1_prop } { name } \l_tmpa_tl {
+		#2%{#1}
+    }{
+        \textcolor{red}{\textbf{Function~}#1\textbf{~not~defined.}}
+    }
+}
+
+%%%%%%%%%%%%%%%%%%%% Defining Functions
+\NewDocumentCommand{\fun}{mmmmm}{
+  \prop_clear_new:c { l_myfunc_function_#1_prop }
+  \prop_put:cnn { l_myfunc_function_#1_prop } { name } { #1 }
+  \prop_put:cnn { l_myfunc_function_#1_prop } { domain } { #2 }
+  \prop_put:cnn { l_myfunc_function_#1_prop } { codomain } { #3 }
+  \prop_put:cnn { l_myfunc_function_#1_prop } { arg } { #4 }
+  \prop_put:cnn { l_myfunc_function_#1_prop } { map } { #5 }
+}
+
+% Real function f{arg}{map}
+\NewDocumentCommand{\realFun}{m m m}{
+   \fun{#1}{\mathbb{R}}{\mathbb{R}}{#2}{#3}
+}
+
+
+%%%%%%%%%%%%%%%%%%%% Getting Functions
+
+% f & : & domain & \rightarrow & codomain
+% or starred
+% f : domain \rightarrow codomain
+\NewDocumentCommand{\getRelation}{s m}{
+  \checkFunDefined{#2}{
+    \IfBooleanTF {#1}
+    {
+      #2 : \prop_item:cn { l_myfunc_function_#2_prop } { domain } \rightarrow  \prop_item:cn { l_myfunc_function_#2_prop } { codomain }
+    }
+    {
+      #2 &: & \prop_item:cn { l_myfunc_function_#2_prop } { domain } & \rightarrow & \prop_item:cn { l_myfunc_function_#2_prop } { codomain }
+    }
+  }  
+}
+
+% && fun_arg &\mapsto & \fun_map
+\NewDocumentCommand{\getMap}{s m}{
+  \checkFunDefined{#2}{
+    \IfBooleanTF {#1}
+    {
+      \prop_item:cn { l_myfunc_function_#2_prop } { arg } \mapsto  \prop_item:cn { l_myfunc_function_#2_prop } { map }
+    }
+    {
+      && \prop_item:cn { l_myfunc_function_#2_prop } { arg } &\mapsto & \prop_item:cn { l_myfunc_function_#2_prop } { map }
+    }
+  }
+}
+
+
+%%%%%%%%%%%%%%%%%%%% Printing Function Definitions
+
+\NewDocumentCommand{\printFunDef}{sm}{
+  \IfBooleanTF {#1}
+  {
+    \checkFunDefined{#2}{
+      \getRelation*{#2}, \; \getMap*{#2}
+    }
+  }
+  {
+    \begin{IEEEeqnarray*}{rCrCl}
+      \getRelation{#2}\\
+      \getMap{#2}
+    \end{IEEEeqnarray*}
+  }
+}
+
+%%%%%%%%%%%%%%%%%%%% Printing Function Terms
+
+\NewDocumentCommand{\getFunTerm}{d()d<>m}{
+  \checkFunDefined{#3}{
+    \prop_get:cnN { l_myfunc_function_#3_prop } { map } \l_tmpa_tl
+    \IfValueT{#1}
+    { % replace argument with #1
+      \IfValueTF{#2}
+      { % replace #2 with #1
+        \tl_replace_all:Nnn {\l_tmpa_tl} { #2 } { #1 }
+      }
+      { % replace x with #1
+        \tl_replace_all:Nnn {\l_tmpa_tl} { x } { #1 }
+      }
+    }
+    %{ % use saved argument
+    %}
+    \tl_use:N \l_tmpa_tl
+  }
+}
+  
+\NewDocumentCommand{\getFun}{sm}{
+  \checkFunDefined{#2}{
+  \IfBooleanTF{#1}
+  {
+    #2\left(\prop_item:cn  { l_myfunc_function_#2_prop } { arg } \right) =\prop_item:cn  { l_myfunc_function_#2_prop } { map }
+  }
+  {
+    #2\left(\prop_item:cn  { l_myfunc_function_#2_prop } { arg } \right) &=& \prop_item:cn { l_myfunc_function_#2_prop } { map }
+  }
+  }
+}
+\ExplSyntaxOff

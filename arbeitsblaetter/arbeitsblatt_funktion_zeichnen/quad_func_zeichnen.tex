@@ -1,0 +1,603 @@
+\documentclass{article}
+\usepackage[widelayout,sf,ngerman, solution, hyperref]{custom23}
+\usepackage{func_helper}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+%\usepackage[german]{babel}
+%\usepackage{helvet}
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+%\newcommand{\docName}{Quadratische Funktionen}
+%\newcommand{\docVersion}{}%Version 1.1.0}
+%\newcommand{\klasse}{Kantonsschule Wettingen, Klasse G1D}
+
+%\fancyhead[L]{\klasse}
+%\fancyhead[R]{\today, \docVersion}
+%\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+% Useful packages
+%\usepackage{amsmath}
+%\usepackage{graphicx}
+%\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+%\usepackage{float}
+%\usepackage{wrapfig}
+%\usepackage{array}
+%\newcommand{\PreserveBackslash}[1]{\let\temp=\\#1\let\\=\temp}
+%\newcolumntype{C}[1]{>{\PreserveBackslash\centering}p{#1}}
+%\newcolumntype{R}[1]{>{\PreserveBackslash\raggedleft}p{#1}}
+%\newcolumntype{L}[1]{>{\PreserveBackslash\raggedright}p{#1}}
+%\usepackage[shortlabels]{enumitem}
+
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{framed}
+\title{Quadratische Funktionen zeichnen}
+\usepackage{pgfplots}
+%\IEEEsettextwidth{1cm}{1cm}
+\usepackage{changepage}
+\date{\vspace{-7ex}}
+\begin{document}
+%\fontfamily{phv}\selectfont
+%\begin{adjustwidth}{-2cm}{-2cm}
+\maketitle
+%\scriptsize
+\realFun{f}{x}{x^2 - 2x + 1}
+Alice und Bob wurden gefragt, den Graphen folgender Funktion zu zeichnen und ihre Arbeitsschritte zu kommentieren.
+\printFunDef{f}
+\subsection*{Aufgabe 1}
+\begin{enumerate}[label=\alph*)]
+\item Lesen Sie aufmerksam den Lösungsweg von Alice (Achtung: Vorder- und Rückseite) und den von Bob durch. Vergleichen Sie die Graphen, die Alice und Bob erhalten. Finden Sie Unterschiede? Stimmen Sie den Resultaten zu?
+\item Wie viele Schritte umfasst Alice Lösungsweg? Wie viele Schritte umfasst Bobs Lösungsweg?
+\item Geben Sie jedem Schritt in Alice Lösungsweg einen Namen. Sie dürfen auch mehrere Schritte gruppieren und ihnen den gleichen Namen geben, wenn Sie denken, dass in den Schritten das gleiche passiert.
+\end{enumerate}
+
+\subsection*{Aufgabe 2}
+Was passiert genau in der zweiten Etappe von Alices Lösungsweg? Was meint Alice mit $\Delta_y = \Delta_x^2$? Stimmen Sie Alice zu? Können Sie Alice Behauptung mathematisch begründen oder widerlegen?
+
+\subsection*{Aufgabe 3}
+Hat Alice Recht mit der Behauptung, dass es eine Symmetrieachse im Funktionsgraphen gibt? Wenn ja, wo verläuft diese? Können Sie das mathematisch begründen?
+%\newpage 
+\subsection*{Aufgabe 4}
+\realFun{g}{x}{2x^2 + 4x + 2}
+Wenden Sie Alices Lösungsweg an, um die folgende Funktion graphisch darzustellen. \printFunDef{g}
+\begin{center}
+\resizebox{0.5\textwidth}{!}{
+\begin{tikzpicture}[>=Stealth, scale=0.5]
+    % Draw grid
+    \draw[very thin, color=gray!30] (-6,-2) grid (6,10); % Grid lines
+    % Draw axes
+    \draw[->] (-6,0) -- (6,0) node[right] {\footnotesize $x$}; % x-axis
+    \draw[->] (0,-2) -- (0,10) node[above] {\footnotesize $g(x)$}; % y-axis
+    % Add ticks and labels on x-axis
+    %\draw (0, 0) node[above left] {\tiny $0$};
+    \foreach \x in {-6,...,-1}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+    \foreach \x in {1,...,6}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+
+    % Add ticks and labels on y-axis
+    \foreach \y in {-2,...,-1}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    \foreach \y in {1,...,10}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+        %\node[circle,draw,inner sep=2pt, orange!80!black, fill] (sp) at (1,0) {};
+        %\node at ($(sp) + (0.5,-1)$) {\scriptsize {\color{orange!80!black} Scheitelpunkt}};
+\end{tikzpicture}
+}
+\end{center}
+%\printFunDef{f}
+%\begin{minipage}[t]{.45\textwidth}
+\newpage
+
+\centering
+\noindent\fbox{%
+    \parbox{0.9\textwidth}{%
+        \centering
+        \textbf{Lösungsweg Bob}
+    }%
+}
+
+%\begin{minipage}[t]{.1\textwidth}
+%\hfill\\
+%\end{minipage}%
+\vspace{0.5cm}
+
+\begin{minipage}[t]{.6\textwidth}
+\printFunDef{f}
+\begin{tabular}{|c|c|c|c|c|c|c|c|}
+\hline
+$x$ & -6 & -4 & -2 & 0 & 2 & 4 & 6 \\
+\hline
+$f(x)$ & 49 & 25 & 9 & 1 & 1 & 9 & 49 \\
+\hline
+\end{tabular}
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[>=Stealth, scale=0.5]
+    % Draw grid
+    \draw[very thin, color=gray!30] (-6,-2) grid (6,10); % Grid lines
+    % Draw axes
+    \draw[->] (-6,0) -- (6,0) node[right] {\footnotesize $x$}; % x-axis
+    \draw[->] (0,-2) -- (0,10) node[above] {\footnotesize $f(x)$}; % y-axis
+    % Add ticks and labels on x-axis
+    %\draw (0, 0) node[above left] {\tiny $0$};
+    \foreach \x in {-6,...,-1}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+    \foreach \x in {1,...,6}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+
+    % Add ticks and labels on y-axis
+    \foreach \y in {-2,...,-1}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    \foreach \y in {1,...,10}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+        
+    \node[circle,draw,inner sep=2pt, orange!80!black, fill] (mtwo) at (-2,9) {};
+        \node[circle,draw,inner sep=2pt, orange!80!black, fill] (zero) at (0,1) {};
+    \node[circle,draw,inner sep=2pt, orange!80!black, fill] (two) at (2,1) {};
+        \node[circle,draw,inner sep=2pt, orange!80!black, fill] (four) at (4,9) {};
+
+    %\node at ($(sp) + (0.5,-1)$) {\scriptsize {\color{orange!80!black} Scheitelpunkt}};
+    %\node[circle,draw,inner sep=2pt, blue!80!black, fill] (fp) at (2,1) {};
+    %\node[circle,draw,inner sep=2pt, blue!80!black, fill] (mfp) at (0,1) {};
+    %\node[circle,draw,inner sep=2pt, green!70!black, fill] (scnd) at (3,4) {};
+    %\node[circle,draw,inner sep=2pt, green!70!black, fill] (mscnd) at (-1,4) {};
+
+    %\node[circle,draw,inner sep=2pt, red!80!black, fill] (thrd) at (4,9) {};
+    %\node[circle,draw,inner sep=2pt, red!80!black, fill] (mthrd) at (-2,9) {};
+	% symmetry axis    
+    %\draw[very thick, black!60!white, dash dot] (1,-2) -- (1,10) {};
+    %\draw[very thick, black!60!white, dashed] (fp) -- (mfp) {};
+    %\draw[very thick, black!60!white, dashed] (scnd) -- (mscnd) {};
+    %\draw[very thick, black!60!white, dashed] (thrd) -- (mthrd) {};
+
+	%\draw[domain=-6:6, smooth, variable=\x, red, thick] plot ({\x}, {(\x-1)^2});
+%	\draw[thick, smooth] plot coordinates {
+%	(mthrd)
+%	(mscnd)
+%	(mfp)
+%	(sp)
+%	(fp)
+%	(scnd)
+%	(thrd)
+%	};
+	\clip (-6, -2) rectangle (6,10);
+    %\draw[thick, smooth, black] plot[domain=-2.5:4.5, samples=100] (\x, {(\x-1)^2});
+    %node[below, midway] {$\Delta_x$};
+    %\draw[very thick, red!80!black, dashed] (4,0) -- (thrd) node[right, midway] {$\Delta_y = \Delta_x^2$};
+\end{tikzpicture}}
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[>=Stealth, scale=0.5]
+    % Draw grid
+    \draw[very thin, color=gray!30] (-6,-2) grid (6,10); % Grid lines
+    % Draw axes
+    \draw[->] (-6,0) -- (6,0) node[right] {\footnotesize $x$}; % x-axis
+    \draw[->] (0,-2) -- (0,10) node[above] {\footnotesize $f(x)$}; % y-axis
+    % Add ticks and labels on x-axis
+    %\draw (0, 0) node[above left] {\tiny $0$};
+    \foreach \x in {-6,...,-1}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+    \foreach \x in {1,...,6}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+
+    % Add ticks and labels on y-axis
+    \foreach \y in {-2,...,-1}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    \foreach \y in {1,...,10}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+        
+    \node[circle,draw,inner sep=2pt, orange!80!black, fill] (mtwo) at (-2,9) {};
+        \node[circle,draw,inner sep=2pt, orange!80!black, fill] (zero) at (0,1) {};
+    \node[circle,draw,inner sep=2pt, orange!80!black, fill] (two) at (2,1) {};
+        \node[circle,draw,inner sep=2pt, orange!80!black, fill] (four) at (4,9) {};
+
+    %\node at ($(sp) + (0.5,-1)$) {\scriptsize {\color{orange!80!black} Scheitelpunkt}};
+    %\node[circle,draw,inner sep=2pt, blue!80!black, fill] (fp) at (2,1) {};
+    %\node[circle,draw,inner sep=2pt, blue!80!black, fill] (mfp) at (0,1) {};
+    %\node[circle,draw,inner sep=2pt, green!70!black, fill] (scnd) at (3,4) {};
+    %\node[circle,draw,inner sep=2pt, green!70!black, fill] (mscnd) at (-1,4) {};
+
+    %\node[circle,draw,inner sep=2pt, red!80!black, fill] (thrd) at (4,9) {};
+    %\node[circle,draw,inner sep=2pt, red!80!black, fill] (mthrd) at (-2,9) {};
+	% symmetry axis    
+    %\draw[very thick, black!60!white, dash dot] (1,-2) -- (1,10) {};
+    %\draw[very thick, black!60!white, dashed] (fp) -- (mfp) {};
+    %\draw[very thick, black!60!white, dashed] (scnd) -- (mscnd) {};
+    %\draw[very thick, black!60!white, dashed] (thrd) -- (mthrd) {};
+
+	%\draw[domain=-6:6, smooth, variable=\x, red, thick] plot ({\x}, {(\x-1)^2});
+	\draw[thick, smooth] plot coordinates {
+	(mtwo)
+	(zero)
+	(two)
+	(four)
+	};
+	\clip (-6, -2) rectangle (6,10);
+    %\draw[thick, smooth, black] plot[domain=-2.5:4.5, samples=100] (\x, {(\x-1)^2});
+    %node[below, midway] {$\Delta_x$};
+    %\draw[very thick, red!80!black, dashed] (4,0) -- (thrd) node[right, midway] {$\Delta_y = \Delta_x^2$};
+\end{tikzpicture}}
+\end{minipage}%
+\begin{minipage}[t]{.3\textwidth}
+%\small
+\raggedleft
+%\vspace{1.5cm}
+\emph{Als erstes habe ich die Funktionswerte für verschiedene Funktionsargumente berechnet}\\[2cm]
+
+\emph{\color{orange!80!black} Dann habe ich diese in das Koordinatensystem übertragen}\\[8cm]
+
+\emph{Anschliessend habe ich die Punkte verbunden}\vspace{0.5cm}
+
+%\emph{und zum Schluss mein Ergebnis schön hingeschrieben}%\vspace{0.75cm}%\hfill\\
+
+
+%\emph{Und diese nach $y$ aufgel\"ost.}
+\end{minipage}%
+
+
+%\end{minipage}%
+
+\newpage
+
+
+\centering
+\noindent\fbox{%
+    \parbox{0.9\textwidth}{%
+    %\footnotesize
+        \centering
+        \textbf{L\"osungsweg Alice}
+    }%
+}
+
+\begin{minipage}[t]{.45\textwidth}
+\normalfont
+\raggedright
+\vspace{0.5cm}
+%\scriptsize
+\emph{Als erstes habe ich den Funktionsterm in der Scheitelpunktform geschrieben. Das war einfach, denn er entspricht dem binomischen Term $(x-1)^2.$}\\[1cm]%\vspace{1cm}
+
+\emph{\color{orange!80!black}Dann habe ich den Scheitelpunkt im Graphen markiert.}\\[5cm]
+
+\emph{\color{blue!80!black} Als nächstes bin ich, vom Scheitelpunkt aus, um eine Einheit nach rechts und $1^2 = 1$ Einheit hoch gegangen, um den nächsten Punkt zu markieren. Denn es gilt $\Delta_y = \Delta_x^2$!}\\[5.5cm]
+
+\emph{\color{green!50!black} Danach bin ich $2$ Einheiten nach rechts und $2^2 = 4$ Einheiten hoch gegangen und habe den Punkt markiert.}\\[2.5cm]
+%\emph{\color{green!70!black} Zuletzt
+
+%\emph{Schliesslich habe ich den Scheitelpunkt abgelesen.}%\vspace{0.75cm}%\hfill\\
+
+
+%\emph{Und diese nach $y$ aufgel\"ost.}
+
+\end{minipage}%
+\begin{minipage}[t]{.05\textwidth}
+\hfill\\
+\end{minipage}%
+\begin{minipage}[t]{.45\textwidth}
+\begin{IEEEeqnarray*}{rClRs}
+x^2 -2x + 1 &=& (x-1)^2
+\end{IEEEeqnarray*}
+%Das heisst, der Scheitelpunkt liegt in $(1,0)$.
+\begin{center}
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[>=Stealth, scale=0.5]
+    % Draw grid
+    \draw[very thin, color=gray!30] (-6,-2) grid (6,10); % Grid lines
+    % Draw axes
+    \draw[->] (-6,0) -- (6,0) node[right] {\footnotesize $x$}; % x-axis
+    \draw[->] (0,-2) -- (0,10) node[above] {\footnotesize $f(x)$}; % y-axis
+    % Add ticks and labels on x-axis
+    %\draw (0, 0) node[above left] {\tiny $0$};
+    \foreach \x in {-6,...,-1}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+    \foreach \x in {1,...,6}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+
+    % Add ticks and labels on y-axis
+    \foreach \y in {-2,...,-1}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    \foreach \y in {1,...,10}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+        \node[circle,draw,inner sep=2pt, orange!80!black, fill] (sp) at (1,0) {};
+        \node at ($(sp) + (0.5,-1)$) {\scriptsize {\color{orange!80!black} Scheitelpunkt}};
+\end{tikzpicture}
+}
+
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[>=Stealth, scale=0.5]
+    % Draw grid
+    \draw[very thin, color=gray!30] (-6,-2) grid (6,10); % Grid lines
+    % Draw axes
+    \draw[->] (-6,0) -- (6,0) node[right] {\footnotesize $x$}; % x-axis
+    \draw[->] (0,-2) -- (0,10) node[above] {\footnotesize $f(x)$}; % y-axis
+    % Add ticks and labels on x-axis
+    %\draw (0, 0) node[above left] {\tiny $0$};
+    \foreach \x in {-6,...,-1}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+    \foreach \x in {1,...,6}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+
+    % Add ticks and labels on y-axis
+    \foreach \y in {-2,...,-1}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    \foreach \y in {1,...,10}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    \node[circle,draw,inner sep=2pt, orange!80!black, fill] (sp) at (1,0) {};
+    %\node at ($(sp) + (0.5,-1)$) {\scriptsize {\color{orange!80!black} Scheitelpunkt}};
+    \node[circle,draw,inner sep=2pt, blue!80!black, fill] (fp) at (2,1) {};
+    \draw[very thick, blue!80!black, dashed] (sp) -- (2,0) node[below, midway] {$\Delta_x$};
+    \draw[very thick, blue!80!black, dashed] (2,0) -- (fp) node[right, midway] {$\Delta_y = \Delta_x^2$};
+\end{tikzpicture}
+}
+
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[>=Stealth, scale=0.5]
+    % Draw grid
+    \draw[very thin, color=gray!30] (-6,-2) grid (6,10); % Grid lines
+    % Draw axes
+    \draw[->] (-6,0) -- (6,0) node[right] {\footnotesize $x$}; % x-axis
+    \draw[->] (0,-2) -- (0,10) node[above] {\footnotesize $f(x)$}; % y-axis
+    % Add ticks and labels on x-axis
+    %\draw (0, 0) node[above left] {\tiny $0$};
+    \foreach \x in {-6,...,-1}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+    \foreach \x in {1,...,6}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+
+    % Add ticks and labels on y-axis
+    \foreach \y in {-2,...,-1}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    \foreach \y in {1,...,10}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    \node[circle,draw,inner sep=2pt, orange!80!black, fill] (sp) at (1,0) {};
+    %\node at ($(sp) + (0.5,-1)$) {\scriptsize {\color{orange!80!black} Scheitelpunkt}};
+    \node[circle,draw,inner sep=2pt, blue!80!black, fill] (fp) at (2,1) {};
+    \node[circle,draw,inner sep=2pt, green!70!black, fill] (scnd) at (3,4) {};
+    \draw[very thick, green!70!black, dashed] (sp) -- (3,0) node[below, midway] {$\Delta_x$};
+    \draw[very thick, green!70!black, dashed] (3,0) -- (scnd) node[right, midway] {$\Delta_y = \Delta_x^2$};
+\end{tikzpicture}
+}
+
+\end{center}
+\end{minipage}
+\newpage
+\centering
+\noindent\fbox{%
+    \parbox{0.9\textwidth}{%
+    %\footnotesize
+        \centering
+        \textbf{Fortsetzung L\"osungsweg Alice}
+    }%
+}
+\begin{minipage}[t]{.5\textwidth}
+%\small
+\raggedright
+\vspace{0.5cm}
+%\scriptsize
+%\emph{Als erstes habe ich die Funktion in der Scheitelpunktform geschrieben. Das war einfach, denn sie entspricht dem binomischen Term $(x+1)^2.$}\\[1cm]%\vspace{1cm}
+
+%\emph{\color{orange!80!black}Dann habe ich den Scheitelpunkt im Graphen markiert.}\\[2.5cm]
+
+%\emph{\color{blue!80!black} Als nächstes bin ich, vom Scheitelpunkt aus, um eine Einheit nach rechts und $1^2 = 1$ Einheit hoch gegangen, um den nächsten Punkt zu markieren.}\\[2cm]
+
+%\emph{\color{green!70!black} Danach bin ich $2$ Einheiten nach rechts und $2^2 = 4$ Einheiten hoch gegangen und habe den Punkt markiert.}\\[2.5cm]
+\emph{\color{red!80!black} Das habe ich dann noch einmal wiederholt, bin also $3$ Einheiten nach rechts und $3^2 = 9$ Einheiten hoch gegangen.}\\[6cm]
+\emph{Dann habe ich die Punkte noch an der Symmetrieachse gespiegelt.}\\[6cm]
+\emph{Und zum Schluss schön verbunden}\\
+
+%\emph{\color{green!70!black} Zuletzt
+
+%\emph{Schliesslich habe ich den Scheitelpunkt abgelesen.}%\vspace{0.75cm}%\hfill\\
+
+
+%\emph{Und diese nach $y$ aufgel\"ost.}
+
+\end{minipage}%
+\begin{minipage}[t]{.05\textwidth}
+\hfill\\
+\end{minipage}%
+\begin{minipage}[t]{.45\textwidth}
+%\begin{IEEEeqnarray*}{rClRs}
+%x^2 -2x + 1 &=& (x-1)^2
+%\end{IEEEeqnarray*}
+%Das heisst, der Scheitelpunkt liegt in $(1,0)$.
+\begin{center}
+%\resizebox{\textwidth}{!}{
+%\begin{tikzpicture}[>=Stealth, scale=0.5]
+%    % Draw grid
+%    \draw[very thin, color=gray!30] (-6,-2) grid (6,10); % Grid lines
+%    % Draw axes
+%    \draw[->] (-6,0) -- (6,0) node[right] {\footnotesize $x$}; % x-axis
+%    \draw[->] (0,-2) -- (0,10) node[above] {\footnotesize $f(x)$}; % y-axis
+%    % Add ticks and labels on x-axis
+%    %\draw (0, 0) node[above left] {\tiny $0$};
+%    \foreach \x in {-6,...,-1}
+%        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+%    \foreach \x in {1,...,6}
+%        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+%
+%    % Add ticks and labels on y-axis
+%    \foreach \y in {-2,...,-1}
+%        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+%    \foreach \y in {1,...,10}
+%        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+%        \node[circle,draw,inner sep=2pt, orange!80!black, fill] (sp) at (1,0) {};
+%        \node at ($(sp) + (0.5,-1)$) {\scriptsize {\color{orange!80!black} Scheitelpunkt}};
+%\end{tikzpicture}
+%}
+%
+%\resizebox{\textwidth}{!}{
+%\begin{tikzpicture}[>=Stealth, scale=0.5]
+%    % Draw grid
+%    \draw[very thin, color=gray!30] (-6,-2) grid (6,10); % Grid lines
+%    % Draw axes
+%    \draw[->] (-6,0) -- (6,0) node[right] {\footnotesize $x$}; % x-axis
+%    \draw[->] (0,-2) -- (0,10) node[above] {\footnotesize $f(x)$}; % y-axis
+%    % Add ticks and labels on x-axis
+%    %\draw (0, 0) node[above left] {\tiny $0$};
+%    \foreach \x in {-6,...,-1}
+%        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+%    \foreach \x in {1,...,6}
+%        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+%
+%    % Add ticks and labels on y-axis
+%    \foreach \y in {-2,...,-1}
+%        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+%    \foreach \y in {1,...,10}
+%        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+%    \node[circle,draw,inner sep=2pt, orange!80!black, fill] (sp) at (1,0) {};
+%    %\node at ($(sp) + (0.5,-1)$) {\scriptsize {\color{orange!80!black} Scheitelpunkt}};
+%    \node[circle,draw,inner sep=2pt, blue!80!black, fill] (fp) at (2,1) {};
+%    \draw[very thick, blue!80!black, dashed] (sp) -- (2,0) node[below, midway] {$\Delta_x$};
+%    \draw[very thick, blue!80!black, dashed] (2,0) -- (fp) node[right, midway] {$\Delta_y = \Delta_x^2$};
+%\end{tikzpicture}
+%}
+%
+%\resizebox{\textwidth}{!}{
+%\begin{tikzpicture}[>=Stealth, scale=0.5]
+%    % Draw grid
+%    \draw[very thin, color=gray!30] (-6,-2) grid (6,10); % Grid lines
+%    % Draw axes
+%    \draw[->] (-6,0) -- (6,0) node[right] {\footnotesize $x$}; % x-axis
+%    \draw[->] (0,-2) -- (0,10) node[above] {\footnotesize $f(x)$}; % y-axis
+%    % Add ticks and labels on x-axis
+%    %\draw (0, 0) node[above left] {\tiny $0$};
+%    \foreach \x in {-6,...,-1}
+%        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+%    \foreach \x in {1,...,6}
+%        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+%
+%    % Add ticks and labels on y-axis
+%    \foreach \y in {-2,...,-1}
+%        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+%    \foreach \y in {1,...,10}
+%        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+%    \node[circle,draw,inner sep=2pt, orange!80!black, fill] (sp) at (1,0) {};
+%    %\node at ($(sp) + (0.5,-1)$) {\scriptsize {\color{orange!80!black} Scheitelpunkt}};
+%    \node[circle,draw,inner sep=2pt, blue!80!black, fill] (fp) at (2,1) {};
+%    \node[circle,draw,inner sep=2pt, green!70!black, fill] (scnd) at (3,4) {};
+%    \draw[very thick, green!70!black, dashed] (sp) -- (3,0) node[below, midway] {$\Delta_x$};
+%    \draw[very thick, green!70!black, dashed] (3,0) -- (scnd) node[right, midway] {$\Delta_y = \Delta_x^2$};
+%\end{tikzpicture}
+%}
+
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[>=Stealth, scale=0.5]
+    % Draw grid
+    \draw[very thin, color=gray!30] (-6,-2) grid (6,10); % Grid lines
+    % Draw axes
+    \draw[->] (-6,0) -- (6,0) node[right] {\footnotesize $x$}; % x-axis
+    \draw[->] (0,-2) -- (0,10) node[above] {\footnotesize $f(x)$}; % y-axis
+    % Add ticks and labels on x-axis
+    %\draw (0, 0) node[above left] {\tiny $0$};
+    \foreach \x in {-6,...,-1}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+    \foreach \x in {1,...,6}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+
+    % Add ticks and labels on y-axis
+    \foreach \y in {-2,...,-1}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    \foreach \y in {1,...,10}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    \node[circle,draw,inner sep=2pt, orange!80!black, fill] (sp) at (1,0) {};
+    %\node at ($(sp) + (0.5,-1)$) {\scriptsize {\color{orange!80!black} Scheitelpunkt}};
+    \node[circle,draw,inner sep=2pt, blue!80!black, fill] (fp) at (2,1) {};
+    \node[circle,draw,inner sep=2pt, green!70!black, fill] (scnd) at (3,4) {};
+    \node[circle,draw,inner sep=2pt, red!80!black, fill] (thrd) at (4,9) {};
+    \draw[very thick, red!80!black, dashed] (sp) -- (4,0) node[below, midway] {$\Delta_x$};
+    \draw[very thick, red!80!black, dashed] (4,0) -- (thrd) node[right, midway] {\scriptsize $\Delta_y = \Delta_x^2$};
+\end{tikzpicture}
+}
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[>=Stealth, scale=0.5]
+    % Draw grid
+    \draw[very thin, color=gray!30] (-6,-2) grid (6,10); % Grid lines
+    % Draw axes
+    \draw[->] (-6,0) -- (6,0) node[right] {\footnotesize $x$}; % x-axis
+    \draw[->] (0,-2) -- (0,10) node[above] {\footnotesize $f(x)$}; % y-axis
+    % Add ticks and labels on x-axis
+    %\draw (0, 0) node[above left] {\tiny $0$};
+    \foreach \x in {-6,...,-1}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+    \foreach \x in {1,...,6}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+
+    % Add ticks and labels on y-axis
+    \foreach \y in {-2,...,-1}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    \foreach \y in {1,...,10}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    \node[circle,draw,inner sep=2pt, orange!80!black, fill] (sp) at (1,0) {};
+    %\node at ($(sp) + (0.5,-1)$) {\scriptsize {\color{orange!80!black} Scheitelpunkt}};
+    \node[circle,draw,inner sep=2pt, blue!80!black, fill] (fp) at (2,1) {};
+    \node[circle,draw,inner sep=2pt, blue!80!black, fill] (mfp) at (0,1) {};
+    \node[circle,draw,inner sep=2pt, green!70!black, fill] (scnd) at (3,4) {};
+    \node[circle,draw,inner sep=2pt, green!70!black, fill] (mscnd) at (-1,4) {};
+
+    \node[circle,draw,inner sep=2pt, red!80!black, fill] (thrd) at (4,9) {};
+    \node[circle,draw,inner sep=2pt, red!80!black, fill] (mthrd) at (-2,9) {};
+	% symmetry axis    
+    \draw[very thick, black!60!white, dash dot] (1,-2) -- (1,10) {};
+    \draw[very thick, black!60!white, dashed] (fp) -- (mfp) {};
+    \draw[very thick, black!60!white, dashed] (scnd) -- (mscnd) {};
+    \draw[very thick, black!60!white, dashed] (thrd) -- (mthrd) {};
+
+	%\draw[domain=-6:6, smooth, variable=\x, red, thick] plot ({\x}, {(\x-1)^2});
+    %node[below, midway] {$\Delta_x$};
+    %\draw[very thick, red!80!black, dashed] (4,0) -- (thrd) node[right, midway] {$\Delta_y = \Delta_x^2$};
+\end{tikzpicture}
+}
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[>=Stealth, scale=0.5]
+    % Draw grid
+    \draw[very thin, color=gray!30] (-6,-2) grid (6,10); % Grid lines
+    % Draw axes
+    \draw[->] (-6,0) -- (6,0) node[right] {\footnotesize $x$}; % x-axis
+    \draw[->] (0,-2) -- (0,10) node[above] {\footnotesize $f(x)$}; % y-axis
+    % Add ticks and labels on x-axis
+    %\draw (0, 0) node[above left] {\tiny $0$};
+    \foreach \x in {-6,...,-1}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+    \foreach \x in {1,...,6}
+        \draw (\x,0.1) -- (\x,-0.1) node[below] {\tiny $\x$};
+
+    % Add ticks and labels on y-axis
+    \foreach \y in {-2,...,-1}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    \foreach \y in {1,...,10}
+        \draw (0.1,\y) -- (-0.1,\y) node[left] {\tiny $\y$};
+    \node[circle,draw,inner sep=2pt, orange!80!black, fill] (sp) at (1,0) {};
+    %\node at ($(sp) + (0.5,-1)$) {\scriptsize {\color{orange!80!black} Scheitelpunkt}};
+    \node[circle,draw,inner sep=2pt, blue!80!black, fill] (fp) at (2,1) {};
+    \node[circle,draw,inner sep=2pt, blue!80!black, fill] (mfp) at (0,1) {};
+    \node[circle,draw,inner sep=2pt, green!70!black, fill] (scnd) at (3,4) {};
+    \node[circle,draw,inner sep=2pt, green!70!black, fill] (mscnd) at (-1,4) {};
+
+    \node[circle,draw,inner sep=2pt, red!80!black, fill] (thrd) at (4,9) {};
+    \node[circle,draw,inner sep=2pt, red!80!black, fill] (mthrd) at (-2,9) {};
+	% symmetry axis    
+    \draw[very thick, black!60!white, dash dot] (1,-2) -- (1,10) {};
+    \draw[very thick, black!60!white, dashed] (fp) -- (mfp) {};
+    \draw[very thick, black!60!white, dashed] (scnd) -- (mscnd) {};
+    \draw[very thick, black!60!white, dashed] (thrd) -- (mthrd) {};
+
+	%\draw[domain=-6:6, smooth, variable=\x, red, thick] plot ({\x}, {(\x-1)^2});
+%	\draw[thick, smooth] plot coordinates {
+%	(mthrd)
+%	(mscnd)
+%	(mfp)
+%	(sp)
+%	(fp)
+%	(scnd)
+%	(thrd)
+%	};
+	\clip (-6, -2) rectangle (6,10);
+    \draw[thick, smooth, black] plot[domain=-2.5:4.5, samples=100] (\x, {(\x-1)^2});
+    %node[below, midway] {$\Delta_x$};
+    %\draw[very thick, red!80!black, dashed] (4,0) -- (thrd) node[right, midway] {$\Delta_y = \Delta_x^2$};
+\end{tikzpicture}}
+\end{center}
+\end{minipage}
+%\newpage
+\end{document}
