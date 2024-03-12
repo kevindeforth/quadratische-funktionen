@@ -1,0 +1,282 @@
+\documentclass[12pt]{article}
+\usepackage{pgfkeys}
+\usepackage[widelayout,sf,ngerman, copyright, hyperref]{custom23}
+\usepackage{func_helper}
+\usepackage{tikz_helper24}
+%\stefancopyright=true
+\newcommand{\docName}{Quadratische Funktionen}
+%\newcommand{\docVersion}{Parameterform}%Version 1.0.1}
+\newcommand{\klasse}{Kantonsschule Wettingen, Klasse G1D}
+
+%\fancyhead[L]{\klasse}
+%\fancyhead[R]{\today}%, \docVersion}
+%\renewcommand{\headrulewidth}{0.4pt} % Line under the header
+\usepackage{wrapfig}
+
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\renewcommand\tabularxcolumn[1]{m{#1}}% for vertical centering text in X column
+
+\usepackage{makecell}
+\usepackage{subcaption}
+\setboolean{solution}{true}
+\title{Nullstellen Quadratischer Funktionen}
+\usepackage{soul}
+\usepackage{setspace}
+\begin{document}
+\maketitle
+
+\subsection*{Aufgabe 1: Wurzeln reeller Zahlen}
+Bestimmen Sie für jede der folgenden Zahlen die Anzahl reeller Quadratwurzeln und geben Sie diese an.
+
+\emph{Beispiel: Die Zahl $1$ hat genau zwei Wurzeln in $\Reals$, nämlich $+1$ und $-1$.}
+
+\begin{enumerate}[2col, label=\alph*)]
+\item $4$
+\item $0$
+\item $-1$
+\item $3$
+\item Eine positive reelle Zahl $p$
+\item Eine negative reelle Zahl $q$
+\end{enumerate}\hfill\\
+%\vspace{1cm}
+\begin{solution}
+\begin{enumerate}[2col, label=\alph*)]
+\item $4$ hat genau zwei Quadratwurzeln in $\Reals$, nämlich $2$ und $-2$.
+\item $0$ hat genau eine Quadratwurzeln in $\Reals$, nämlich $0$.
+\item $-1$ hat keine Quadratwurzeln in $\Reals$.
+\item $3$ hat genau zwei Quadratwurzeln in $\Reals$, nämlich $\sqrt{3}$ und $-\sqrt{3}.$
+\item Eine positive Zahl $p \in \Reals_{+}$ hat genau zwei reelle Quadratwurzeln, nämlich $\sqrt{p}$ und $-\sqrt{p}.$
+\item Eine negative Zahl $q \in \Reals_{-}$ hat keine reellen Quadratwurzeln.
+\end{enumerate}\hfill\\
+\end{solution}
+
+\subsection*{Aufgabe 2: Wurzeln bestimmen}
+
+Bestimmen Sie für folgende Gleichungen die Lösungsmenge für $\blacktriangle \in \mathbb{R}$:
+\begin{enumerate}[2col, label=\alph*)]
+\item $\blacktriangle^2 = 0$
+\item $\blacktriangle^2 = 1$
+\item $\blacktriangle^2 = 3$
+\item $\blacktriangle^2 = -1$
+\item $\blacktriangle^2 = e,$ für $e\in \Reals$ gilt.
+\item $(\blacktriangle+1)^2 = 0$
+\item $(\blacktriangle+1)^2 = 1$
+\item $(\blacktriangle +1)^2 = 3$
+\item $(\blacktriangle +1)^2 = -1$
+\item $(\blacktriangle - d)^2 = e,$ für $e, d \in \Reals$.
+\end{enumerate}\hfill\\
+\begin{solution}
+\begin{enumerate}[2col, label=\alph*)]
+\item Die reelle Lösungsmenge für $\blacktriangle^2 = 0$ ist $\{0\}$
+\item Die reelle Lösungsmenge für $\blacktriangle^2 = 1$ ist $\{1,-1\}$
+\item Die reelle Lösungsmenge für $\blacktriangle^2 = 3$ ist $\{\sqrt{3},-\sqrt{3}\}$
+\item Die reelle Lösungsmenge für $\blacktriangle^2 = -1$ ist $\emptyset$ (das ist die leere Menge)
+\item Die reelle Lösungsmenge für $\blacktriangle^2 = e,$ für einen reellen Parameter $e$, ist $\{\sqrt{e},-\sqrt{e}\}$ wenn $e$ positiv ist, $\{0\}$ wenn $e$ gleich null ist und $\emptyset$ wenn $e$ negativ ist.
+\item Die reelle Lösungsmenge für $(\blacktriangle+1)^2 = 0$ ist $\{-1\}.$
+\item Die reelle Lösungsmenge für $(\blacktriangle+1)^2 = 1$ ist $\{0, -2\}$
+\item Die reelle Lösungsmenge für $(\blacktriangle +1)^2 = 3$ ist $\{-1 + \sqrt{3}, -1 - \sqrt{3} \}.$
+\item Die reelle Lösungsmenge für $(\blacktriangle +1)^2 = -1$ ist $\emptyset$
+\item Die reelle Lösungsmenge für $(\blacktriangle - d)^2 = e,$ für reelle Parameter $e$ und $d$ ist $\{d+\sqrt{e}, d-\sqrt{e} \},$ wenn $e$ positiv ist, $\{d\}$ wenn $e$ gleich null ist und $\emptyset$ wenn $e$ negativ ist.
+\end{enumerate}\hfill\\
+\end{solution}
+\newpage
+\subsection*{Aufgabe 3: Nullstelle bestimmen}
+\realFun{h}{x}{-\frac{1}{12}(x-6)^2 + 16.65}
+Bob wirft einen Wasserballon vom 3. Stock. Die Flugbahn des Wasserballons entspricht dem Funktionsgraphen einer quadratischen Kurve. Die Höhe $h$ des Wasserballons in Meter, in Abhängigkeit zur zurückgelegten horizontalen Distanz $x$ ist gegeben als \printFunDef{h}.
+\begin{center}
+\begin{tikzpicture}
+    % Building main structure
+    \drawcustomgrid*{x}{h(x)}{0}{10}{0}{5}
+    \foreach \y in {0,1,2,3} {
+        % Draw the building's story
+        \draw (-2.4,\y) rectangle ++(2,1);
+        % Draw windows
+        \draw ($(-2.4,\y)+(0.1,0.3)$) rectangle ++(0.6,0.5);
+        % Draw windows
+        %\draw ($(0,\y)+(0.5,0.4)$) rectangle ++(0.6,0.4);
+        % Draw windows
+        \draw ($(-2.4,\y)+(1,0.4)$) rectangle ++(0.6,0.4);
+        % Draw windows
+        %\draw ($(0,\y)+(0.5,0.4)$) rectangle ++(0.3,0.4);
+        % Draw the balcony
+        \draw (-0.4,\y) rectangle ++(0.4,0.3);
+    }
+    
+    % Add details to the balconies
+    \foreach \y in {0,1,2,3} {
+        \draw (-0.275, \y) -- ++(0,0.3);
+        \draw (-0.15, \y) -- ++(0,0.3); % Balcony division
+        \draw (-0.25, \y) -- ++(0,0.3); % Balcony division
+        %\draw (2, \y) -- ++(1,0); % Lower line of balcony rail
+    }
+    % Draw Bob 
+        % Head
+    \draw[thick, blue] (-0.1,2.5) circle (0.1cm);
+    \node[blue, above] at (0.4,3.8) {Bob};
+    \draw[blue, dashed, ->] (0.4,3.8) -- (0.1,2.7) {};
+    % Body
+    \draw[thick, blue] (-0.1,2.4) -- (-0.1, 2.1);
+    % Arms
+    \draw (0.15,2.5) -- (-0.1,2.3);
+    % Arms
+    \draw (-0.35,2.5) -- (-0.1,2.3);
+    % Legs
+    \draw (-0.2,2.0) -- (-0.1,2.2);
+    \draw (0,2.0) -- (-0.1,2.2);
+    
+    %\draw[red, dotted] (2.6,3.8) -- (2.5,2.7) {};
+	\clip (0, 0) rectangle (10,5);
+    \draw[thick, smooth, red, dotted] plot[domain=0:10, samples=100] (\x, {-0.455*(\x-1.099)^2+3.049});
+    \draw[thick, smooth, red] plot[domain=0:1.099, samples=100] (\x, {-0.455*(\x-1.099)^2+3.049});
+    \draw[red] (1.099, 3.049) circle (0.05cm) {};
+    \node[red, above right] at (1.099, 3.049) {Wasserballon};
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}[label=\alph*)]
+\item Bestimmen Sie die maximale Höhe, die der Wasserballon erreicht.
+\begin{solution}
+Die Maximale Höhe entspricht dem Funktionswert im Scheitelpunkt. Die Funktion hat ihren Scheitelpunkt in $(6,16.65),$ somit ist die maximale Höhe, die der Wasserballon erreicht 16.65 Meter.
+\end{solution}
+\item Bestimmen Sie die Distanz vom Aufprallort zum Gebäude.
+\begin{solution}
+Der Aufprallort entspricht dem Ort, an dem die Höhe des Wasserballons null ist, also für den $h(x) = 0$ gilt. Wir finden:
+\begin{IEEEeqnarray*}{RrCl}
+& h(x) &=& 0\\
+\iff & \getFunTerm{h} &=& 0\\
+\iff & -\frac{1}{12}(x-6)^2 &=& -16.65\\
+\iff & (x-6)^2 &=& 12 \cdot 16.65\\
+\iff & x-6 &=& \pm \sqrt{199.8}\\
+\iff & x &=& 6 \pm 14.14\\
+\end{IEEEeqnarray*}
+Das heisst, der Ball schlägt im Punkt $(20.14, 0)$ oder $(-8.14,0)$ auf. Da Bob den Ball in die positive Richtung der $x-$Achse wirft, entspricht der Aufprallort $(20.14, 0)$. Die Distanz zum Gebäude beträgt somit $20.14$ Meter.
+\end{solution}
+\end{enumerate}
+\newpage
+\subsection*{Aufgabe 4: Nullstellen der Scheitelpunktform}
+%\realFun{f}{x}{a(x+3)^2 -5}
+\begin{enumerate}[label=\alph*)]
+%\item Es sei $a$ ein reeller Parameter ungleich null und die Funktion $f$ wie aus Aufgabe~1 des formativen Assessments definiert\printFunDef{f}
+%Bestimmen Sie die Nullstellen der Funktion $f$ für
+%\begin{enumerate}[label=\roman*)]
+%\item $a > 0$;
+%\begin{solution}
+%
+%Wir suchen $x$, so dass $f(x)=0$ gilt. \begin{IEEEeqnarray*}{rrCl's'rCl}
+%& f(x)&=& 0\\
+%\iff & a(x+3)^2 -5 &=& 0\\
+%\iff &a(x+3)^2 &=& 5\\
+%\iff &(x+3)^2 &=& \frac{5}{a}\\
+%\iff &x+3 &=& \sqrt{\frac{5}{a}} & oder &x+3&=&-\sqrt{\frac{5}{a}} \\
+%\iff &x &=& -3 +  \sqrt{\frac{5}{a}}& oder &x &=&-3-\sqrt{\frac{5}{a}} 
+%\end{IEEEeqnarray*}
+%\end{solution}
+%\item $a < 0$;
+%\begin{solution}
+%In diesem Fall hat $f$ keine Nullstellen, da es keine reelle Zahl $x$ gibt, die die Gleichung $(x+3)^2 = \frac{5}{a}$ erfüllt, da die rechte Seite der Gleichung negativ ist, wenn $a$ negativ ist.
+%\end{solution}
+%\end{enumerate}
+\realFun{g}{x}{a(x-d)^2 +e}
+
+\item Es sei $g$ eine reelle quadratische Funktion mit Parameter $a \in \Reals\setminus\{0\}$ und $d,e \in \Reals$: \printFunDef{g}
+Bestimmen Sie die Nullstellen der Funktion $g$: \begin{enumerate}[label=\roman*)]
+\item wenn $e=0$
+\item wenn $a>0$ und $e<0$ oder $a<0$ und $e>0$
+\item wenn $a>0$ und $e>0$ oder $a<0$ und $e<0$
+\end{enumerate}\hfill\\
+Vervollständigen Sie die den Text:
+\begin{quotation}
+\begin{spacing}{2}
+Wenn $e$ null ist, hat die Funktion $g$ genau \rule{0.5cm}{0.5pt} Nullstellen. Wenn $e$ ungleich null ist und das \rule{2cm}{0.5pt}  Vorzeichen wie $a$ hat, dann hat die Funktion $g$ genau \rule{0.5cm}{0.5pt} Nullstellen. Wenn $e$ ungleich null ist und ein \rule{2cm}{0.5pt}  Vorzeichen als $a$ hat, dann hat die Funktion $g$ genau \rule{0.5cm}{0.5pt} Nullstellen.
+\end{spacing}
+\end{quotation}
+\begin{solution}
+
+Die Funktion $g$ hat eine Nullstelle in $x\in \Reals$, wenn $g(x) = 0$ gilt, das heisst
+\begin{IEEEeqnarray*}{RrCl}
+&g(x) &=& 0\\
+\iff & a(x-d)^2 + e &=& 0\\
+\iff & a(x-d)^2 &=& -e\\
+\iff & (x-d)^2 &=& -\frac{e}{a}
+\end{IEEEeqnarray*}
+Aus Aufgabe~2j) wissen wir, dass diese Gleichung
+\begin{itemize}
+\item eine reelle Lösung hat, wenn $e=0$ ist. In dem Fall lautet die Lösungsmenge für die Gleichung $\{d\}$;
+\item zwei Lösungen hat, wenn der Term $-\frac{e}{a}$ positiv ist. In diesem Fall finden wir:
+\begin{IEEEeqnarray*}{RrCl's'rCl}
+& (x-d)^2 &=& -\frac{e}{a}\\
+\iff &x-d &=& \sqrt{-\frac{e}{a}} & oder & x-d &=& -\sqrt{-\frac{e}{a}}\\
+\iff &x &=& d + \sqrt{-\frac{e}{a}} & oder & x &=& d-\sqrt{-\frac{e}{a}}\\
+\end{IEEEeqnarray*}
+und die Lösungsmenge für die Gleichung ist $\lbrace d + \sqrt{-\frac{e}{a}}, d-\sqrt{-\frac{e}{a}} \rbrace;$
+\item keine reelle Lösung hat, wenn der Term $-\frac{e}{a}$ negativ ist.\\
+\end{itemize}
+\begin{quotation}
+Wenn $e$ null ist, hat die Funktion $g$ genau ${\color{blue}{1}}$ Nullstellen. Wenn $e$ ungleich null ist und das {\color{blue}{gleiche}} Vorzeichen wie $a$ hat, dann hat die Funktion $g$ genau ${\color{blue}{0}}$ Nullstellen. Wenn $e$ ungleich null ist und ein {\color{blue}{anderes}} Vorzeichen als $a$ hat, dann hat die Funktion $g$ genau {$\color{blue}{2}$} Nullstellen.
+\end{quotation}
+\end{solution}
+\end{enumerate}
+\newpage
+\subsection*{Aufgabe 5: Nullstellen der allgemeinen Form}
+\realFun{f}{x}{ax^2 + bx + c}
+Es sei $f$ eine reelle quadratische Funktion der allgemeinen Form \printFunDef{f}
+Sie wissen bereits, dass die Funktion $f$ ihren Scheitelpunkt in $\left(-\frac{b}{2a}, c-\frac{b^2}{4a}\right)$ erreicht.
+\begin{enumerate}[label=\alph*)]
+\item Nutzen Sie die Resultate aus Aufgabe~3b), um die Nullstellen der Funktion $f$ zu bestimmen.
+\item Was sind die Bedingungen, die erfüllt sein müssen, damit $f$ genau null, eine oder zwei Nullstellen hat?
+\end{enumerate}
+\begin{solution}
+\begin{enumerate}[label=\alph*)]
+\item Aus Aufgabe 3 wissen wir, dass eine reelle quadratische Funktion mit Scheitelpunkt in $(d,e)$ ihre Nullstellen in
+\begin{itemize}
+\item $x_1 = d + \sqrt{-\frac{e}{a}}$ und $x_2 = d - \sqrt{-\frac{e}{a}}$ hat, wenn $e$ und $a$ unterschiedliche Vorzeichen haben. Wir kürzen das ab mit $x_{1,2} = d \pm \sqrt{-\frac{e}{a}}$. 
+\item $x_1 = d$ hat, wenn $e$ gleich Null ist. Durch Substitution von $d$ mit $-\frac{b}{2a}$, finden wir, dass die Funktion $h$ eine Nullstelle in $x_1 = d = -\frac{b}{2a}$ hat.
+\item Keine Nullstellen hat, wenn $e$ und $a$ das gleiche Vorzeichen haben.
+\end{itemize}
+%Im zweiten Fall (wenn $e=0$ gilt) 
+%Im ersten Fall finden wir durch Substitution von $d$  mit $-\frac{b}{2a}$ und $e$ mit $c-\frac{b^2}{4a}$
+Im ersten Fall ersetzen wir $d$ mit $-\frac{b}{2a}$ und $e$ mit $c-\frac{b^2}{4a}$ und finden:
+\begin{IEEEeqnarray*}{RrCl}
+& x_{1,2} &=& d \pm \sqrt{-\frac{e}{a}}\\
+\overset{d=-\frac{b}{2a}, e=c-\frac{b^2}{4a} }{\iff} & x_{1,2} &=& (-\frac{b}{2a}) \pm  \sqrt{-\frac{c-\frac{b^2}{4a}}{a}}\\
+\iff & x_{1,2} &=& \frac{-b}{2a} \pm  \sqrt{-\left(\frac{c}{a}-\frac{b^2}{4a^2}\right)}\\
+\iff & x_{1,2} &=& \frac{-b}{2a} \pm  \sqrt{-\frac{4ac-b^2}{4a^2}}\\
+\iff & x_{1,2} &=& \frac{-b}{2a} \pm  \sqrt{\frac{b^2 - 4ac}{4a^2}}\\
+\iff & x_{1,2} &=& \frac{-b}{2a} \pm  \frac{\sqrt{b^2 - 4ac}}{2a}\\
+\iff & x_{1,2} &=& \frac{-b\pm\sqrt{b^2 - 4ac}}{2a}\\
+\end{IEEEeqnarray*}
+
+%\footnotesize
+
+%\begin{IEEEeqnarray*}{RrCl's'rCl}
+%& x_1 &=& -d + \sqrt{-\frac{e}{a}} & und &  x_2 &=& -d - \sqrt{-\frac{e}{a}}\\
+%\overset{d=-\frac{b}{2a}, e=c-\frac{b^2}{4a} }{\iff} & x_1 &=& -(-\frac{b}{2a}) +  \sqrt{-\frac{c-\frac{b^2}{4a}}{a}} & und & x_2 &=& -(-\frac{b}{2a}) -  \sqrt{-\frac{c-\frac{b^2}{4a}}{a}}\\
+%\iff & x_1 &=& \frac{b}{2a} +  \sqrt{-\left(\frac{c}{a}-\frac{b^2}{4a^2}\right)} & und & x_2 &=& \frac{b}{2a} -  \sqrt{-\left(\frac{c}{a}-\frac{b^2}{4a^2}\right)}\\
+%\iff & x_1 &=& \frac{b}{2a} +  \sqrt{-\frac{4ac-b^2}{4a^2}} & und & x_2 &=& \frac{b}{2a} - \sqrt{-\frac{4ac-b^2}{4a^2}}\\
+%\iff & x_1 &=& \frac{b}{2a} +  \sqrt{\frac{b^2 - 4ac}{4a^2}} & und & x_2 &=& \frac{b}{2a} - \sqrt{\frac{b^2 - 4ac}{4a^2}}\\
+%\iff & x_1 &=& \frac{b}{2a} +  \frac{\sqrt{b^2 - 4ac}}{2a} & und & x_2 &=& \frac{b}{2a} - \frac{\sqrt{b^2 - 4ac}}{2a}\\
+%\iff & x_1 &=& \frac{b+\sqrt{b^2 - 4ac}}{2a} & und & x_2 &=& \frac{b-\sqrt{b^2 - 4ac}}{2a}\\
+%\end{IEEEeqnarray*}
+\item Damit $f$ genau eine Nullstelle hat, muss $e=0$ sein, also muss $c-\frac{b^2}{4a} =0$ gelten. In dem Fall ist auch der Term $b^2 -4ac$ null, denn es gilt:
+\begin{IEEEeqnarray*}{c}
+c-\frac{b^2}{4a} =0 \iff 4ac - b^2 = 0 \iff b^2 - 4ac = 0.
+\end{IEEEeqnarray*}
+Damit $f$ genau zwei Nullstellen hat, müssen $a$ und $e$ unterschiedliche Vorzeichen haben. Das ist genau dann der Fall, wenn $a\cdot e < 0$ ist. Wir finden:
+\begin{IEEEeqnarray*}{RrCl}
+& a \cdot e &<& 0\\
+\iff & a \cdot \left( c-\frac{b^2}{4a} \right) & < & 0\\
+\iff & ac - \frac{b^2}{4} &<& 0\\
+\iff & 4ac - b^2 &<& 0\\
+\iff & b^2 - 4ac &>& 0\\
+\end{IEEEeqnarray*}
+
+Abschliessend lässt sich sagen, dass der Term $\Delta = b^2 - 4ac$ folgenden Einfluss auf die Anzahl Nullstellen der reellen quadratischen Funktion $f(x) = ax^2 + bx + c$ nimmt:
+\begin{itemize}
+\item Wenn $\Delta > 0$, dann hat $f$ genau zwei Nullstellen;
+\item Wenn $\Delta =0$, dann hat $f$ genau eine Nullstelle;
+\item Wenn $\Delta < 0$, dann hat $f$ keine reellen Nullstellen.
+\end{itemize}
+\end{enumerate}
+\end{solution}
+%\label{lastpage}
+\end{document}
